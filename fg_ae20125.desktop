@@ -1,9 +1,21 @@
 [Desktop Entry]
-Version=1.0
-Type=Application
-Name=Funktionsgenerator AE20125
-Comment=Steuerungssoftware für FG AE20125
-TryExec=fg_ae20125
+Comment[de]=Steuerungssoftware für FG AE20125
+Comment=Controllingsoftware for FG AE20125
 Exec=fg_ae20125
+GenericName[de]=
+GenericName=
 Icon=fg_ae20125
-MimeType=image/x-foo;
+MimeType=
+Name[de]=Funktionsgenerator AE20125
+Name=Function Generator AE20125
+Path=/usr/share/fg_ae20125
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+TryExec=fg_ae20125
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

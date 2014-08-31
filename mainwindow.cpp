@@ -8,11 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     /// ApplicationPath holen und abspeichern ///
-    appPath = QApplication::applicationDirPath();
+    // appPath = QApplication::applicationDirPath();
+
+    appPath = QDir::currentPath();
 
     /// Translator installieren ///
-    // langPath = appPath+"/lang";
-    langPath = "/usr/share/fg_ae20125";
+    langPath = appPath+"/lang";
+    // langPath = "/usr/share/fg_ae20125";
     qApp->installTranslator(&qtTranslator);
     qApp->installTranslator(&appTranslator);
     QString SystemLocale = QLocale::system().name();       // "de_DE"

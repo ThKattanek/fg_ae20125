@@ -39,6 +39,7 @@ OTHER_FILES += \
     translations/lang_de.png \
     translations/lang_en.png
 
+linux-g++-64{    
 target.path +=  /usr/bin/
 helpfiles.path += /usr/share/fg_ae20125
 #helpfiles.files += bin/help/*
@@ -47,7 +48,7 @@ desktop.path +=  /usr/share/applications
 desktop.files += fg_ae20125.desktop
 icon.path +=  /usr/share/pixmaps
 icon.files += fg_ae20125.svg
-languages.path += /usr/share/fg_ae20125
+languages.path += /usr/share/fg_ae20125/lang
 languages.files += translations/*.qm
 languages.files += translations/*.png
 INSTALLS += target
@@ -55,3 +56,4 @@ INSTALLS += helpfiles
 INSTALLS += desktop
 INSTALLS += icon    
 INSTALLS += languages
+}
