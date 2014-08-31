@@ -48,6 +48,7 @@ desktop.path +=  /usr/share/applications
 desktop.files += fg_ae20125.desktop
 icon.path +=  /usr/share/pixmaps
 icon.files += fg_ae20125.svg
+languages.path += /usr/share/fg_ae20125
 languages.path += /usr/share/fg_ae20125/lang
 languages.files += translations/*.qm
 languages.files += translations/*.png
