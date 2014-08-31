@@ -30,5 +30,6 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 OTHER_FILES += \
-    daten_protokoll_ascel.png
+    daten_protokoll_ascel.png \
+    README.md
 
