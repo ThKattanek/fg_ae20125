@@ -29,3 +29,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
+OTHER_FILES += \
+    daten_protokoll_ascel.png
+
