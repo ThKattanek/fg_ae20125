@@ -11,7 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     appPath = QApplication::applicationDirPath();
 
     /// Translator installieren ///
-    langPath = appPath+"/lang";
+    // langPath = appPath+"/lang";
+    langPath = "/usr/share/fg_ae20125";
     qApp->installTranslator(&qtTranslator);
     qApp->installTranslator(&appTranslator);
     QString SystemLocale = QLocale::system().name();       // "de_DE"

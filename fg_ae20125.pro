@@ -35,7 +35,9 @@ FORMS    += mainwindow.ui
 OTHER_FILES += \
     README.md \
     translations/lang_de.ts \
-    translations/lang_en.ts
+    translations/lang_en.ts \
+    translations/lang_de.png \
+    translations/lang_en.png
 
 target.path +=  /usr/bin/
 helpfiles.path += /usr/share/fg_ae20125
@@ -45,7 +47,11 @@ desktop.path +=  /usr/share/applications
 desktop.files += fg_ae20125.desktop
 icon.path +=  /usr/share/pixmaps
 icon.files += fg_ae20125.svg
+languages.path += /usr/share/fg_ae20125
+languages.files += translations/*.qm
+languages.files += translations/*.png
 INSTALLS += target
 INSTALLS += helpfiles
 INSTALLS += desktop
 INSTALLS += icon    
+INSTALLS += languages
