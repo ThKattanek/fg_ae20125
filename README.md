@@ -24,3 +24,10 @@ Danach sollte die Anwendung im Menü oder Desktop zu sehen sein.
 * /usr/share/pixmaps
 
 ### <u>Bauen der Anwendung unter Windows (MinGW)</u> ###
+
+* qmake
+* make
+* make release
+* make release-install
+
+#### !! Anstatt make könnte auch mingw32-make benutzt werden. ####

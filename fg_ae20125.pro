@@ -4,6 +4,13 @@
 #
 #-------------------------------------------------
 
+#-------------------------------------------------
+# PFADE hier setzen
+#-------------------------------------------------
+
+#-- Windows Installpfad
+WIN_INSTALL_DIR = install
+
 QT       += core gui
 
 TRANSLATIONS = translations/lang_de.ts
@@ -40,6 +47,11 @@ OTHER_FILES += \
     translations/lang_en.png \
     docs/daten_protokoll_ascel.pdf
 
+## Translation Release ##
+
+QMAKE_PRE_LINK += lrelease translations/lang_de.ts \
+			& lrelease translations/lang_en.ts
+
 ## INSTALL LINUX (make install) ##
 
 linux-g++-64{    
@@ -69,6 +81,10 @@ INSTALLS += languages
 # QMAKE_LIBDIR_QT = C:\Entwicklertools\Qt\Qt5.2.1\5.2.1\mingw48_32\bin
 
 win32-g++{
+
+QMAKE_LFLAGS_WINDOWS += -static-libgcc
+
+
 target.path +=  $$WIN_INSTALL_DIR
 helpfiles.path += $$WIN_INSTALL_DIR
 #helpfiles.files += bin/help/*
