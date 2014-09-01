@@ -37,10 +37,13 @@ OTHER_FILES += \
     translations/lang_de.ts \
     translations/lang_en.ts \
     translations/lang_de.png \
-    translations/lang_en.png
+    translations/lang_en.png \
+    docs/daten_protokoll_ascel.pdf
 
 linux-g++-64{    
 target.path +=  /usr/bin/
+data.path += /usr/share/fg_ae20125
+
 helpfiles.path += /usr/share/fg_ae20125
 #helpfiles.files += bin/help/*
 #helpfiles.files += bin/help/html/*.html
@@ -48,11 +51,11 @@ desktop.path +=  /usr/share/applications
 desktop.files += fg_ae20125.desktop
 icon.path +=  /usr/share/pixmaps
 icon.files += fg_ae20125.svg
-languages.path += /usr/share/fg_ae20125
 languages.path += /usr/share/fg_ae20125/lang
 languages.files += translations/*.qm
 languages.files += translations/*.png
 INSTALLS += target
+INSTALLS += data
 INSTALLS += helpfiles
 INSTALLS += desktop
 INSTALLS += icon    
