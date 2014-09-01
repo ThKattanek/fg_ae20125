@@ -1,29 +1,26 @@
-# README #
+# Steuerungssoftware für ASCEL Funktionsgenerator AE20125 #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
+### Einleitung ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Dies Software erlaubt es den Funktionsgenerator von ASCEL AE20125 auch unter Linux zu benutzen. Dank des offenen
+Datenprotokolls von ASCEL war es mir möglich diese Anwendung zu schreiben.
 
-### How do I get set up? ###
+### Version: 0.1 Beta ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### <u>Bauen der Anwendung unter Linux</u> ###
 
-### Contribution guidelines ###
+* qmake
+* make
+* make install
 
-* Writing tests
-* Code review
-* Other guidelines
+Danach sollte die Anwendung im Menü oder Desktop zu sehen sein.
 
-### Who do I talk to? ###
+#### Die Anwendung installiert sich folgende Verzeichnisse: ####
 
-* Repo owner or admin
-* Other community or team contact
+* /usr/bin
+* /usr/share/fg_ae20125
+* /usr/share/applications
+* /usr/share/pixmaps
+
+### <u>Bauen der Anwendung unter Windows (MinGW)</u> ###
