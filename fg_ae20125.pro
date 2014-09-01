@@ -40,6 +40,8 @@ OTHER_FILES += \
     translations/lang_en.png \
     docs/daten_protokoll_ascel.pdf
 
+## INSTALL LINUX (make install) ##
+
 linux-g++-64{    
 target.path +=  /usr/bin/
 data.path += /usr/share/fg_ae20125
@@ -60,4 +62,34 @@ INSTALLS += helpfiles
 INSTALLS += desktop
 INSTALLS += icon    
 INSTALLS += languages
+}
+
+## INSTALL WINDOWS (mingw32-make install) ##
+
+# QMAKE_LIBDIR_QT = C:\Entwicklertools\Qt\Qt5.2.1\5.2.1\mingw48_32\bin
+
+win32-g++{
+target.path +=  $$WIN_INSTALL_DIR
+helpfiles.path += $$WIN_INSTALL_DIR
+#helpfiles.files += bin/help/*
+#helpfiles.files += bin/help/html/*.html
+#desktop.path +=  /usr/share/applications
+#desktop.files += fg_ae20125.desktop
+#icon.path +=  /usr/share/pixmaps
+#icon.files += fg_ae20125.svg
+#languages.path += /usr/share/fg_ae20125
+languages.path += $$WIN_INSTALL_DIR/lang
+languages.files += translations/*.qm
+languages.files += translations/*.png
+
+mylibs.path = $$WIN_INSTALL_DIR
+mylibs.files = $${QMAKE_LIBDIR_QT}/Qt*.dll
+mylibs.CONFIG = no_check_exist
+
+INSTALLS += target
+#INSTALLS += helpfiles
+#INSTALLS += desktop
+#INSTALLS += icon
+INSTALLS += languages
+INSTALLS += mylibs
 }
