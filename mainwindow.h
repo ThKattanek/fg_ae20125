@@ -21,6 +21,7 @@ private:
     Ui::MainWindow *ui;
 
     void CreateLanguageMenu(QString defaultLocale);
+    void CleanLanguageMenu();
     void RetranslateUi();
 
     QString appPath;
@@ -30,6 +31,7 @@ private:
 
 private slots:
     void slotLanguageChanged(QAction* action);
+    void on_action_Beeden_triggered();
 };
 
 #endif // MAINWINDOW_H

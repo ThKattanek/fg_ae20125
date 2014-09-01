@@ -7,14 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    /// ApplicationPath holen und abspeichern ///
-    // appPath = QApplication::applicationDirPath();
-
+    /// CurrentPath holen und abspeichern ///
     appPath = QDir::currentPath();
 
     /// Translator installieren ///
     langPath = appPath+"/lang";
-    // langPath = "/usr/share/fg_ae20125";
     qApp->installTranslator(&qtTranslator);
     qApp->installTranslator(&appTranslator);
     QString SystemLocale = QLocale::system().name();       // "de_DE"
@@ -61,7 +58,7 @@ void MainWindow::CreateLanguageMenu(QString defaultLocale)
       iconfile = dir.filePath(iconfile + ".png");
       action->setIcon(QIcon(iconfile));
       action->setIconVisibleInMenu(true);
-      action->setStatusTip(tr("Wechseln zur Sprache: ") + lang);
+      action->setStatusTip(tr("Wechseln zur Sprache:") + " " + lang);
 
       ui->menu_Sprache->addAction(action);
       langGroup->addAction(action);
@@ -75,6 +72,11 @@ void MainWindow::CreateLanguageMenu(QString defaultLocale)
          ui->retranslateUi(this);
       }
     }
+}
+
+void MainWindow::CleanLanguageMenu()
+{
+    ui->menu_Sprache->clear();
 }
 
 void MainWindow::RetranslateUi()
@@ -91,5 +93,12 @@ void MainWindow::slotLanguageChanged(QAction* action)
     //ini->beginGroup("MainWindow");
     //ini->setValue("lang",action->data().toString());
     //ini->endGroup();
+    CleanLanguageMenu();
+    CreateLanguageMenu(langPath);
     RetranslateUi();
+}
+
+void MainWindow::on_action_Beeden_triggered()
+{
+    close();
 }
