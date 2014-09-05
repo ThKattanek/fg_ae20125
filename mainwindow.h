@@ -22,7 +22,6 @@ private:
     Ui::MainWindow *ui;
 
     void CreateLanguageMenu(QString defaultLocale);
-    void CleanLanguageMenu();
     void RetranslateUi();
 
     QString appPath;

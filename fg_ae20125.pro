@@ -109,3 +109,6 @@ INSTALLS += target
 INSTALLS += languages
 INSTALLS += mylibs
 }
+
+RESOURCES += \
+    resources.qrc

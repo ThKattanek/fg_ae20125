@@ -93,11 +93,6 @@ void MainWindow::CreateLanguageMenu(QString defaultLocale)
     }
 }
 
-void MainWindow::CleanLanguageMenu()
-{
-    ui->menu_Sprache->clear();
-}
-
 void MainWindow::RetranslateUi()
 {
     ui->retranslateUi(this);
@@ -113,7 +108,7 @@ void MainWindow::slotLanguageChanged(QAction* action)
     config->setValue("language",action->data().toString());
     config->endGroup();
 
-    CleanLanguageMenu();
+    ui->menu_Sprache->clear();
     CreateLanguageMenu(action->data().toString());
     RetranslateUi();
 }

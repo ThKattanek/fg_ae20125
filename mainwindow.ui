@@ -44,15 +44,22 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="action_Beeden"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Beeden">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/cross.png</normaloff>:/icons/icons/cross.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Beeden</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
