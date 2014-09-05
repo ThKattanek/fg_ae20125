@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QDir>
+#include <QSettings>
 #include <QTranslator>
 
 namespace Ui {
@@ -26,8 +27,10 @@ private:
 
     QString appPath;
     QString langPath;
+    QSettings *config;
     QTranslator appTranslator;
     QTranslator qtTranslator;
+
 
 private slots:
     void slotLanguageChanged(QAction* action);

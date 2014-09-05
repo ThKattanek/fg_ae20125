@@ -5,6 +5,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // Configurationsdatei öffnen
+    config = new QSettings(QDir::homePath() + "/.fg_ae20125.conf",QSettings::IniFormat,this);
+
+    config->beginGroup("MainWindow");
+    QString SystemLocale = config->value("language","nope").toString();
+    config->endGroup();
+
     ui->setupUi(this);
 
     /// CurrentPath holen und abspeichern ///
@@ -12,17 +19,29 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /// Translator installieren ///
     langPath = appPath+"/lang";
+
     qApp->installTranslator(&qtTranslator);
     qApp->installTranslator(&appTranslator);
-    QString SystemLocale = QLocale::system().name();       // "de_DE"
-    SystemLocale.truncate(SystemLocale.lastIndexOf('_'));  // "de"
+
+    if(SystemLocale == "nope")
+    {
+        QString SystemLocale = QLocale::system().name();       // "de_DE"
+        SystemLocale.truncate(SystemLocale.lastIndexOf('_'));  // "de"
+
+        config->beginGroup("MainWindow");
+        config->setValue("language",SystemLocale);
+        config->endGroup();
+    }
 
     CreateLanguageMenu(SystemLocale);
 }
 
 MainWindow::~MainWindow()
-{
+{   
     delete ui;
+
+    // Configurationsdatei schließen
+    if(config != NULL) delete config;
 }
 
 void MainWindow::CreateLanguageMenu(QString defaultLocale)
@@ -90,11 +109,12 @@ void MainWindow::slotLanguageChanged(QAction* action)
 {
     appTranslator.load("lang_" + action->data().toString(), langPath);
     qtTranslator.load("qt_" + action->data().toString(), langPath);
-    //ini->beginGroup("MainWindow");
-    //ini->setValue("lang",action->data().toString());
-    //ini->endGroup();
+    config->beginGroup("MainWindow");
+    config->setValue("language",action->data().toString());
+    config->endGroup();
+
     CleanLanguageMenu();
-    CreateLanguageMenu(langPath);
+    CreateLanguageMenu(action->data().toString());
     RetranslateUi();
 }
 
