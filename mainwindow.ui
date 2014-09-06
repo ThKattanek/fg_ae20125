@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>770</width>
+    <height>584</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>770</width>
      <height>16</height>
     </rect>
    </property>
@@ -27,6 +27,9 @@
     <property name="title">
      <string>&amp;Datei</string>
     </property>
+    <addaction name="separator"/>
+    <addaction name="actionEinstellungen"/>
+    <addaction name="separator"/>
     <addaction name="action_Beeden"/>
    </widget>
    <widget class="QMenu" name="menu_Sprache">
@@ -34,7 +37,16 @@
      <string>&amp;Sprache</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuGer_t">
+    <property name="title">
+     <string>&amp;Gerät</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionVerbinden"/>
+    <addaction name="actionTrennen"/>
+   </widget>
    <addaction name="menu_Dateu"/>
+   <addaction name="menuGer_t"/>
    <addaction name="menu_Sprache"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -45,6 +57,11 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_Beeden"/>
+   <addaction name="separator"/>
+   <addaction name="actionVerbinden"/>
+   <addaction name="actionTrennen"/>
+   <addaction name="separator"/>
+   <addaction name="actionEinstellungen"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Beeden">
@@ -54,6 +71,36 @@
    </property>
    <property name="text">
     <string>&amp;Beeden</string>
+   </property>
+   <property name="statusTip">
+    <string>Beendet diese Anwendung.</string>
+   </property>
+  </action>
+  <action name="actionEinstellungen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/setting_tools.png</normaloff>:/icons/icons/setting_tools.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Einstellungen</string>
+   </property>
+  </action>
+  <action name="actionVerbinden">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/connect.png</normaloff>:/icons/icons/connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Verbinden</string>
+   </property>
+  </action>
+  <action name="actionTrennen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/disconnect.png</normaloff>:/icons/icons/disconnect.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Trennen</string>
    </property>
   </action>
  </widget>

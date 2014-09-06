@@ -8,7 +8,7 @@ Datenprotokolls von ASCEL war es mir möglich diese Anwendung zu schreiben.
 
 ### Version: 0.1 Beta ###
 
-### <u>Bauen der Anwendung unter Linux</u> ###
+### <U>Bauen der Anwendung unter Linux</U> ###
 
 * qmake
 * make

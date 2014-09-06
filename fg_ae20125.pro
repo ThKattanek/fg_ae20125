@@ -34,10 +34,16 @@ DESTDIR = "bin/win_x32"
 }
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    setup_dialog.cpp
 
-HEADERS  += mainwindow.h
-FORMS    += mainwindow.ui
+HEADERS  += \
+    setup_dialog.h \
+    mainwindow.h
+FORMS    += mainwindow.ui \
+    setup_dialog.ui
+
+LIBS += -lQtSerialPort
 
 OTHER_FILES += \
     README.md \

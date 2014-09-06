@@ -5,6 +5,12 @@
 #include <QDir>
 #include <QSettings>
 #include <QTranslator>
+#include <QSettings>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QMessageBox>
+
+#include "setup_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,14 +32,41 @@ private:
 
     QString appPath;
     QString langPath;
-    QSettings *config;
     QTranslator appTranslator;
     QTranslator qtTranslator;
 
 
+    SetupDialog *setup_dialog;
+
+    // Schnittstellen Einstellungen //
+    QString Port;
+    int BaudRate;
+    int DataBits;
+    int Parity;
+    int StopBits;
+    int FlowControl;
+
+    // Allgemeine Einstellungen //
+    char LFKennung;
+    bool EnableUartLine;
+
+    // Konfiguration //
+    QSettings *config;
+
+    // Seielle Port Klasse //
+    QSerialPort *serial;
+    QSerialPortInfo *serial_info;
+    QStringList AvailablePorts;
+    bool isConnected;
+
 private slots:
     void slotLanguageChanged(QAction* action);
     void on_action_Beeden_triggered();
+    void on_actionEinstellungen_triggered();
+    void serial_error(QSerialPort::SerialPortError);
+    void on_actionVerbinden_triggered();
+    void on_actionTrennen_triggered();
+    void serial_incomming_data();
 };
 
 #endif // MAINWINDOW_H

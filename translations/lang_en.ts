@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>MainWindow</name>
     <message>
@@ -19,12 +19,17 @@
         <translation>&amp;Language</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="51"/>
+        <location filename="../mainwindow.ui" line="56"/>
         <source>&amp;Beeden</source>
         <translation>&amp;Quit</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="64"/>
+        <location filename="../mainwindow.ui" line="59"/>
+        <source>Beendet diese Anwendung.</source>
+        <translation>Close this application</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="80"/>
         <source>Wechseln zur Sprache:</source>
         <translation>Change Language:</translation>
     </message>

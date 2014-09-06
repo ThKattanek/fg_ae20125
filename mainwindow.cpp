@@ -3,7 +3,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    setup_dialog(NULL)
 {
     // Configurationsdatei öffnen
     config = new QSettings(QDir::homePath() + "/.fg_ae20125.conf",QSettings::IniFormat,this);
@@ -34,6 +35,31 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     CreateLanguageMenu(SystemLocale);
+
+    config->beginGroup("Schnittstelle");
+    Port = config->value("Port","").toString();
+    BaudRate = config->value("BaudRate",9600).toInt();
+    DataBits = config->value("DataBits",QSerialPort::Data8).toInt();
+    Parity = config->value("Parity",QSerialPort::NoParity).toInt();
+    StopBits = config->value("StopBits",QSerialPort::OneStop).toInt();
+    FlowControl = config->value("FlowControl",QSerialPort::NoFlowControl).toInt();
+    config->endGroup();
+
+    // Serielle Port Klasse erstellen //
+    serial = new QSerialPort(this);
+    serial_info = new QSerialPortInfo();
+
+    connect(serial, SIGNAL(error(QSerialPort::SerialPortError)), this,SLOT(serial_error(QSerialPort::SerialPortError)));
+    connect(serial, SIGNAL(readyRead()), this, SLOT(serial_incomming_data()));
+
+    isConnected = false;
+    ui->actionTrennen->setEnabled(false);
+
+    // Im System vorhandene Schnittstellen ermitteln und die Namen speichern //
+    for(int i=0; i<serial_info->availablePorts().length(); i++)
+    {
+        AvailablePorts.append(serial_info->availablePorts()[i].portName());
+    }
 }
 
 MainWindow::~MainWindow()
@@ -116,4 +142,100 @@ void MainWindow::slotLanguageChanged(QAction* action)
 void MainWindow::on_action_Beeden_triggered()
 {
     close();
+}
+
+void MainWindow::on_actionEinstellungen_triggered()
+{
+    // Setup Fenster Öffnen //
+    setup_dialog = new SetupDialog(this);
+    if(setup_dialog == NULL)
+    {
+        //qDebug() << "Fehler: SetupDialog kann nicht erstellt werden.";
+        return;
+    }
+
+    // Alle Verfügbaren Ports ans Setup schicken
+    setup_dialog->SetAvailablePorts(AvailablePorts);
+
+    // Werte Setzen //
+    setup_dialog->SetPort(Port);
+    setup_dialog->SetBaudRate(BaudRate);
+    setup_dialog->SetDataBits(DataBits);
+    setup_dialog->SetParity(Parity);
+    setup_dialog->SetStopBits(StopBits);
+    setup_dialog->SetFlowControl(FlowControl);
+
+    // Dialog Modal starten //
+    if(QDialog::Accepted == setup_dialog->exec())
+    {
+        // Werte aus Dialog holen und in INI speichern //
+        Port = setup_dialog->GetPort();
+        BaudRate = setup_dialog->GetBaudRate();
+        DataBits = setup_dialog->GetDataBits();
+        Parity = setup_dialog->GetParity();
+        StopBits = setup_dialog->GetStopBits();
+        FlowControl = setup_dialog->GetFlowControl();
+
+        // In Cofigdatei speichern //
+        config->beginGroup("Schnittstelle");
+        config->setValue("Port",Port);
+        config->setValue("BaudRate",BaudRate);
+        config->setValue("DataBits",DataBits);
+        config->setValue("Parity",Parity);
+        config->setValue("StopBits",StopBits);
+        config->setValue("FlowControl",FlowControl);
+        config->endGroup();
+    }
+}
+
+void MainWindow::serial_error(QSerialPort::SerialPortError error)
+{
+    if (error == QSerialPort::ResourceError)
+    {
+        on_actionTrennen_triggered();
+        QMessageBox::critical(this, tr("Fehler"), serial->errorString());
+    }
+}
+
+void MainWindow::serial_incomming_data()
+{
+/*
+#define PUFFER_SIZE 1024
+static char puffer[PUFFER_SIZE];
+static unsigned short puffer_pos;
+
+QByteArray data = serial->readAll();
+
+for(int i=0;i<data.length();i++)
+{
+    if(puffer_pos == PUFFER_SIZE) puffer_pos = 0;
+
+    puffer[puffer_pos++] = data.at(i);
+    if(puffer[puffer_pos-1] == LFKennung)
+    {
+        // String ist fertig //
+        puffer[puffer_pos-1] = 0;
+
+        if(EnableUartLine)
+        {
+            ui->uart_input->setText(QString(puffer));
+        }
+
+        QStringList comands = QString(puffer).split(" ");
+        emit SendComandLine(&comands);
+
+        puffer_pos = 0;
+    }
+*/
+}
+
+
+void MainWindow::on_actionVerbinden_triggered()
+{
+
+}
+
+void MainWindow::on_actionTrennen_triggered()
+{
+
 }

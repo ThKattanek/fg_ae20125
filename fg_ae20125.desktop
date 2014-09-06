@@ -1,13 +1,13 @@
 [Desktop Entry]
 Comment[de]=Steuerungssoftware für FG AE20125
-Comment=Controllingsoftware for FG AE20125
+Comment=Steuerungssoftware für FG AE20125
 Exec=fg_ae20125
 GenericName[de]=
 GenericName=
 Icon=fg_ae20125
 MimeType=
 Name[de]=Funktionsgenerator AE20125
-Name=Function Generator AE20125
+Name=Funktionsgenerator AE20125
 Path=/usr/share/fg_ae20125
 StartupNotify=true
 Terminal=false
