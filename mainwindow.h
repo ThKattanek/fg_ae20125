@@ -9,7 +9,9 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QMessageBox>
+#include <QDebug>
 
+#include "ascel_protokoll.h"
 #include "setup_dialog.h"
 
 namespace Ui {
@@ -23,6 +25,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    void SetFrequenzDisplay(int frquenz);
 
 private:
     Ui::MainWindow *ui;
@@ -58,6 +62,9 @@ private:
     QSerialPortInfo *serial_info;
     QStringList AvailablePorts;
     bool isConnected;
+
+    // ASCEL Protokoll Klasse
+    AscelProtokoll *protokoll;
 
 private slots:
     void slotLanguageChanged(QAction* action);

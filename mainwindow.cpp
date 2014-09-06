@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    setup_dialog(NULL)
+    setup_dialog(NULL),protokoll(NULL)
 {
     // Configurationsdatei öffnen
     config = new QSettings(QDir::homePath() + "/.fg_ae20125.conf",QSettings::IniFormat,this);
@@ -62,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         AvailablePorts.append(serial_info->availablePorts()[i].portName());
     }
+
+    protokoll = new AscelProtokoll();
 }
 
 MainWindow::~MainWindow()
@@ -70,6 +72,8 @@ MainWindow::~MainWindow()
 
     // Configurationsdatei schließen
     if(config != NULL) delete config;
+
+    if(protokoll != NULL) delete protokoll;
 }
 
 void MainWindow::CreateLanguageMenu(QString defaultLocale)
@@ -217,8 +221,16 @@ void MainWindow::serial_incomming_data()
             // String ist fertig //
             puffer[puffer_pos-1] = 0;
 
-            ui->label->setText(QString(puffer));
-
+            if(protokoll->CheckCommand(QString(puffer)))
+            {
+                ui->label->setText("Alles OK!");
+                switch(protokoll->command)
+                {
+                    case code_Frequency:
+                        SetFrequenzDisplay(protokoll->data);
+                    break;
+                }
+            }
             puffer_pos = 0;
         }
     }
@@ -243,6 +255,8 @@ void MainWindow::on_actionVerbinden_triggered()
             ui->actionVerbinden->setEnabled(false);
             ui->actionTrennen->setEnabled(true);
             ui->tabWidget->setEnabled(true);
+
+            serial->write(protokoll->GetSettingsCommand().toAscii());
         }
         else
         {
@@ -269,4 +283,38 @@ void MainWindow::on_actionTrennen_triggered()
     ui->tabWidget->setEnabled(false);
 
     isConnected = false;
+}
+
+void MainWindow::SetFrequenzDisplay(int frequenz)
+{
+    if(frequenz > 999999999) return;
+
+    int frq = frequenz;
+
+    ui->fr_8->setValue(frequenz / 100000000);
+    frequenz = frequenz % 100000000;
+
+    ui->fr_7->setValue(frequenz / 10000000);
+    frequenz = frequenz % 10000000;
+
+    ui->fr_6->setValue(frequenz / 1000000);
+    frequenz = frequenz % 1000000;
+
+    ui->fr_5->setValue(frequenz / 100000);
+    frequenz = frequenz % 100000;
+
+    ui->fr_4->setValue(frequenz / 10000);
+    frequenz = frequenz % 10000;
+
+    ui->fr_3->setValue(frequenz / 1000);
+    frequenz = frequenz % 1000;
+
+    ui->fr_2->setValue(frequenz / 100);
+    frequenz = frequenz % 100;
+
+    ui->fr_1->setValue(frequenz / 10);
+    frequenz = frequenz % 10;
+
+    ui->fr_0->setValue(frequenz / 1);
+    frequenz = frequenz % 1;
 }

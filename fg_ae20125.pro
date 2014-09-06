@@ -35,11 +35,13 @@ DESTDIR = "bin/win_x32"
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    setup_dialog.cpp
+    setup_dialog.cpp \
+    ascel_protokoll.cpp
 
 HEADERS  += \
     setup_dialog.h \
-    mainwindow.h
+    mainwindow.h \
+    ascel_protokoll.h
 FORMS    += mainwindow.ui \
     setup_dialog.ui
 
