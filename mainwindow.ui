@@ -6,20 +6,60 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>584</height>
+    <width>526</width>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ASCEL Funktionsgenerator AE20125 Steuerung</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Normal</string>
+       </attribute>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>511</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Wobbeln</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>770</width>
+     <width>526</width>
      <height>16</height>
     </rect>
    </property>
@@ -84,6 +124,9 @@
    <property name="text">
     <string>&amp;Einstellungen</string>
    </property>
+   <property name="statusTip">
+    <string>Hier können Sie diverse Einstellungen vornehmen.</string>
+   </property>
   </action>
   <action name="actionVerbinden">
    <property name="icon">
@@ -93,6 +136,9 @@
    <property name="text">
     <string>&amp;Verbinden</string>
    </property>
+   <property name="statusTip">
+    <string>Verbinden mit Funktionsgenerator.</string>
+   </property>
   </action>
   <action name="actionTrennen">
    <property name="icon">
@@ -101,6 +147,9 @@
    </property>
    <property name="text">
     <string>&amp;Trennen</string>
+   </property>
+   <property name="statusTip">
+    <string>Trennen vom Funktionsgenerator.</string>
    </property>
   </action>
  </widget>

@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
+    ui->tabWidget->setEnabled(false);
+
     /// CurrentPath holen und abspeichern ///
     appPath = QDir::currentPath();
 
@@ -199,43 +201,72 @@ void MainWindow::serial_error(QSerialPort::SerialPortError error)
 
 void MainWindow::serial_incomming_data()
 {
-/*
-#define PUFFER_SIZE 1024
-static char puffer[PUFFER_SIZE];
-static unsigned short puffer_pos;
+    #define PUFFER_SIZE 1024
+    static char puffer[PUFFER_SIZE];
+    static unsigned short puffer_pos;
 
-QByteArray data = serial->readAll();
+    QByteArray data = serial->readAll();
 
-for(int i=0;i<data.length();i++)
-{
-    if(puffer_pos == PUFFER_SIZE) puffer_pos = 0;
-
-    puffer[puffer_pos++] = data.at(i);
-    if(puffer[puffer_pos-1] == LFKennung)
+    for(int i=0;i<data.length();i++)
     {
-        // String ist fertig //
-        puffer[puffer_pos-1] = 0;
+        if(puffer_pos == PUFFER_SIZE) puffer_pos = 0;
 
-        if(EnableUartLine)
+        puffer[puffer_pos++] = data.at(i);
+        if(puffer[puffer_pos-1] == ';')
         {
-            ui->uart_input->setText(QString(puffer));
+            // String ist fertig //
+            puffer[puffer_pos-1] = 0;
+
+            ui->label->setText(QString(puffer));
+
+            puffer_pos = 0;
         }
-
-        QStringList comands = QString(puffer).split(" ");
-        emit SendComandLine(&comands);
-
-        puffer_pos = 0;
     }
-*/
 }
-
 
 void MainWindow::on_actionVerbinden_triggered()
 {
+    if(isConnected) return;
 
+    serial->setPortName(Port);
+
+    if(serial->open(QIODevice::ReadWrite))
+    {
+        if(serial->setBaudRate(BaudRate)
+                && serial->setDataBits((QSerialPort::DataBits)DataBits)
+                && serial->setParity((QSerialPort::Parity)Parity)
+                && serial->setStopBits((QSerialPort::StopBits)StopBits)
+                && serial->setFlowControl((QSerialPort::FlowControl)FlowControl)
+                )
+        {
+            isConnected = true;
+            ui->actionVerbinden->setEnabled(false);
+            ui->actionTrennen->setEnabled(true);
+            ui->tabWidget->setEnabled(true);
+        }
+        else
+        {
+            serial->close();
+            isConnected = false;
+            QMessageBox::critical(this,"Fehler...","Fehler beim setzen der Schnittstellen Parameter.\nBitte ueberpruefen Sie ihre Einstellungen.");
+        }
+    }
+    else
+    {
+        serial->close();
+        isConnected = false;
+        QMessageBox::critical(this,"Fehler...","Die Serielle Schnittstelle konnte nicht geoeffnet werden\nBitte ueberpruefen Sie ihre Einstellungen.");
+    }
 }
 
 void MainWindow::on_actionTrennen_triggered()
 {
+    if(!isConnected) return;
 
+    serial->close();
+    ui->actionVerbinden->setEnabled(true);
+    ui->actionTrennen->setEnabled(false);
+    ui->tabWidget->setEnabled(false);
+
+    isConnected = false;
 }
