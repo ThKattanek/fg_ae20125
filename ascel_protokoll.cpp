@@ -31,6 +31,19 @@ bool AscelProtokoll::CheckCommand(QString commandline)
     return false;
 }
 
+QString AscelProtokoll::GetSendCommandString(char command, int data)
+{
+    QString str;
+
+    switch(command)
+    {
+        case code_Frequency:
+            str = "201:" + QString(command) + ":" + QVariant(data).toString() + ";";
+            return str;
+        break;
+    }
+}
+
 QString AscelProtokoll::GetSettingsCommand()
 {
     return "201:T:0;";

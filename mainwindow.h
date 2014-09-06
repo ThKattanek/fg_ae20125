@@ -74,6 +74,7 @@ private slots:
     void on_actionVerbinden_triggered();
     void on_actionTrennen_triggered();
     void serial_incomming_data();
+    void OnFrequencyChanged(int);
 };
 
 #endif // MAINWINDOW_H

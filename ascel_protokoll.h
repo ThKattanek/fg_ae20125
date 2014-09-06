@@ -1,6 +1,7 @@
 #ifndef ASCEL_PROTOKOLL_H
 #define ASCEL_PROTOKOLL_H
 
+#include <QVariant>
 #include <QString>
 #include <QStringList>
 
@@ -46,6 +47,7 @@ class AscelProtokoll
 public:
     AscelProtokoll();
     bool CheckCommand(QString command);
+    QString GetSendCommandString(char command, int data);
     QString GetSettingsCommand();
 
     int command;

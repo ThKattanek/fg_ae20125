@@ -14,8 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
     config->endGroup();
 
     ui->setupUi(this);
-
     ui->tabWidget->setEnabled(false);
+
+    connect(ui->fr_0,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_1,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_2,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_3,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_4,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_5,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_6,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_7,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+    connect(ui->fr_8,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
 
     /// CurrentPath holen und abspeichern ///
     appPath = QDir::currentPath();
@@ -223,7 +232,7 @@ void MainWindow::serial_incomming_data()
 
             if(protokoll->CheckCommand(QString(puffer)))
             {
-                ui->label->setText("Alles OK!");
+                //ui->label->setText("Alles OK!");
                 switch(protokoll->command)
                 {
                     case code_Frequency:
@@ -287,7 +296,7 @@ void MainWindow::on_actionTrennen_triggered()
 
 void MainWindow::SetFrequenzDisplay(int frequenz)
 {
-    if(frequenz > 999999999) return;
+    if(frequenz > 100000000) return;
 
     int frq = frequenz;
 
@@ -317,4 +326,19 @@ void MainWindow::SetFrequenzDisplay(int frequenz)
 
     ui->fr_0->setValue(frequenz / 1);
     frequenz = frequenz % 1;
+}
+
+void MainWindow::OnFrequencyChanged(int arg1)
+{
+    int frequenz =  ui->fr_0->value() + \
+                    ui->fr_1->value()*10 + \
+                    ui->fr_2->value()*100 + \
+                    ui->fr_3->value()*1000 + \
+                    ui->fr_4->value()*10000 + \
+                    ui->fr_5->value()*100000 + \
+                    ui->fr_6->value()*1000000 + \
+                    ui->fr_7->value()*10000000 + \
+                    ui->fr_8->value()*100000000;
+
+    serial->write(protokoll->GetSendCommandString(code_Frequency, frequenz).toAscii());
 }
