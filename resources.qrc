@@ -4,5 +4,13 @@
         <file>icons/setting_tools.png</file>
         <file>icons/connect.png</file>
         <file>icons/disconnect.png</file>
+        <file>icons/green-off-16.png</file>
+        <file>icons/green-on-16.png</file>
+        <file>icons/wave0_grey.png</file>
+        <file>icons/wave0.png</file>
+        <file>icons/wave1_grey.png</file>
+        <file>icons/wave1.png</file>
+        <file>icons/wave2_grey.png</file>
+        <file>icons/wave2.png</file>
     </qresource>
 </RCC>

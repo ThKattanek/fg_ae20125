@@ -27,6 +27,7 @@ public:
     ~MainWindow();
 
     void SetFrequenzDisplay(int frquenz);
+    void SetWaveForm(int waveform);
 
 private:
     Ui::MainWindow *ui;
@@ -66,6 +67,9 @@ private:
     // ASCEL Protokoll Klasse
     AscelProtokoll *protokoll;
 
+    QIcon *led_on, *led_off;
+    QIcon *wave0_on, *wave0_off, *wave1_on, *wave1_off, *wave2_on, *wave2_off;
+
 private slots:
     void slotLanguageChanged(QAction* action);
     void on_action_Beeden_triggered();
@@ -75,6 +79,9 @@ private slots:
     void on_actionTrennen_triggered();
     void serial_incomming_data();
     void OnFrequencyChanged(int);
+    void on_Wave0_clicked();
+    void on_Wave1_clicked();
+    void on_Wave2_clicked();
 };
 
 #endif // MAINWINDOW_H

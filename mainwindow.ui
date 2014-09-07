@@ -6,339 +6,444 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>702</width>
-    <height>562</height>
+    <width>704</width>
+    <height>387</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ASCEL Funktionsgenerator AE20125 Steuerung</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>Normal</string>
-       </attribute>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>150</y>
-          <width>511</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_8">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(160, 160, 255);</string>
-        </property>
-        <property name="readOnly">
-         <bool>false</bool>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::UpDownArrows</enum>
-        </property>
-        <property name="correctionMode">
-         <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
-        </property>
-        <property name="keyboardTracking">
-         <bool>false</bool>
-        </property>
-        <property name="maximum">
-         <number>1</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_7">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(160, 160, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_6">
-        <property name="geometry">
-         <rect>
-          <x>160</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(180, 180, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_5">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(180, 180, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_4">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(180, 180, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_3">
-        <property name="geometry">
-         <rect>
-          <x>380</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(210, 210, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_2">
-        <property name="geometry">
-         <rect>
-          <x>450</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(210, 210, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_1">
-        <property name="geometry">
-         <rect>
-          <x>520</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(210, 210, 255);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="fr_0">
-        <property name="geometry">
-         <rect>
-          <x>600</x>
-          <y>10</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>60</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 180, 180);</string>
-        </property>
-        <property name="maximum">
-         <number>9</number>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>80</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>MHz</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>80</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>kHz</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_4">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>80</y>
-          <width>31</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Hz</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="title">
-        <string>Wobbeln</string>
-       </attribute>
-      </widget>
-     </widget>
-    </item>
-   </layout>
+   <widget class="QGroupBox" name="FrequenzGroup">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>681</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Frequenz</string>
+    </property>
+    <widget class="QSpinBox" name="fr_6">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im kHz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(180, 180, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im Hz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(210, 210, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_1">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im Hz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(210, 210, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_4">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im kHz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(180, 180, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>100</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>kHz</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_7">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im MHz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(160, 160, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_5">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im kHz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(180, 180, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>100</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Hz</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_0">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im 10^-1 Hz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 180, 180);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>100</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>MHz</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_3">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im Hz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(210, 210, 255);</string>
+     </property>
+     <property name="maximum">
+      <number>9</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="fr_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>71</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>60</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="statusTip">
+      <string>Frequenz im MHz Bereich verändern.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(160, 160, 255);</string>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::UpDownArrows</enum>
+     </property>
+     <property name="correctionMode">
+      <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>1</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="WaveGroup">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>121</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Wellenform</string>
+    </property>
+    <widget class="QToolButton" name="Wave0">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>101</width>
+       <height>42</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SINUS</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>91</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="Wave1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>101</width>
+       <height>42</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>DREIECK</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>91</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="Wave2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>101</width>
+       <height>42</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>RECHTECK</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>91</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>180</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>91</width>
+      <height>32</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>702</width>
+     <width>704</width>
      <height>16</height>
     </rect>
    </property>
@@ -364,11 +469,21 @@
     <addaction name="actionVerbinden"/>
     <addaction name="actionTrennen"/>
    </widget>
+   <widget class="QMenu" name="menu_Info">
+    <property name="title">
+     <string>&amp;Hilfe</string>
+    </property>
+    <addaction name="action_Info"/>
+   </widget>
    <addaction name="menu_Dateu"/>
    <addaction name="menuGer_t"/>
    <addaction name="menu_Sprache"/>
+   <addaction name="menu_Info"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -431,8 +546,28 @@
     <string>Trennen vom Funktionsgenerator.</string>
    </property>
   </action>
+  <action name="action_Info">
+   <property name="text">
+    <string>&amp;Info</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>fr_8</tabstop>
+  <tabstop>fr_7</tabstop>
+  <tabstop>fr_6</tabstop>
+  <tabstop>fr_5</tabstop>
+  <tabstop>fr_4</tabstop>
+  <tabstop>fr_3</tabstop>
+  <tabstop>fr_2</tabstop>
+  <tabstop>fr_1</tabstop>
+  <tabstop>fr_0</tabstop>
+  <tabstop>Wave0</tabstop>
+  <tabstop>Wave1</tabstop>
+  <tabstop>Wave2</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources>
   <include location="resources.qrc"/>
  </resources>

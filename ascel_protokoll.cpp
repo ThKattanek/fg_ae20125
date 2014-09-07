@@ -24,6 +24,12 @@ bool AscelProtokoll::CheckCommand(QString commandline)
             return true;
         break;
 
+        case code_Waveform:
+            data = list.at(2).toInt(&ok);
+            if(!ok) return false;
+            return true;
+        break;
+
         default:
         break;
     }
@@ -34,14 +40,8 @@ bool AscelProtokoll::CheckCommand(QString commandline)
 QString AscelProtokoll::GetSendCommandString(char command, int data)
 {
     QString str;
-
-    switch(command)
-    {
-        case code_Frequency:
-            str = "201:" + QString(command) + ":" + QVariant(data).toString() + ";";
-            return str;
-        break;
-    }
+    str = "201:" + QString(command) + ":" + QVariant(data).toString() + ";";
+    return str;
 }
 
 QString AscelProtokoll::GetSettingsCommand()

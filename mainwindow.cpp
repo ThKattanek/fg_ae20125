@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     config->endGroup();
 
     ui->setupUi(this);
-    ui->tabWidget->setEnabled(false);
 
     connect(ui->fr_0,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
     connect(ui->fr_1,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
@@ -25,6 +24,22 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->fr_6,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
     connect(ui->fr_7,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
     connect(ui->fr_8,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
+
+    ui->FrequenzGroup->setEnabled(false);
+    ui->WaveGroup->setEnabled(false);
+
+    /// Icons Laden ///
+
+    led_on = new QIcon(":/icons/icons/green-on-16.png");
+    led_off = new QIcon(":/icons/icons/green-off-16.png");
+    wave0_on = new QIcon(":/icons/icons/wave0.png");
+    wave0_off = new QIcon(":/icons/icons/wave0_grey.png");
+    wave1_on = new QIcon(":/icons/icons/wave1.png");
+    wave1_off = new QIcon(":/icons/icons/wave1_grey.png");
+    wave2_on = new QIcon(":/icons/icons/wave2.png");
+    wave2_off = new QIcon(":/icons/icons/wave2_grey.png");
+
+    SetWaveForm(4); // Alle ausschalten
 
     /// CurrentPath holen und abspeichern ///
     appPath = QDir::currentPath();
@@ -238,6 +253,10 @@ void MainWindow::serial_incomming_data()
                     case code_Frequency:
                         SetFrequenzDisplay(protokoll->data);
                     break;
+
+                    case code_Waveform:
+                        SetWaveForm(protokoll->data);
+                    break;
                 }
             }
             puffer_pos = 0;
@@ -263,7 +282,8 @@ void MainWindow::on_actionVerbinden_triggered()
             isConnected = true;
             ui->actionVerbinden->setEnabled(false);
             ui->actionTrennen->setEnabled(true);
-            ui->tabWidget->setEnabled(true);
+            ui->FrequenzGroup->setEnabled(true);
+            ui->WaveGroup->setEnabled(true);
 
             serial->write(protokoll->GetSettingsCommand().toAscii());
         }
@@ -289,7 +309,8 @@ void MainWindow::on_actionTrennen_triggered()
     serial->close();
     ui->actionVerbinden->setEnabled(true);
     ui->actionTrennen->setEnabled(false);
-    ui->tabWidget->setEnabled(false);
+    ui->FrequenzGroup->setEnabled(false);
+    ui->WaveGroup->setEnabled(false);
 
     isConnected = false;
 }
@@ -297,8 +318,6 @@ void MainWindow::on_actionTrennen_triggered()
 void MainWindow::SetFrequenzDisplay(int frequenz)
 {
     if(frequenz > 100000000) return;
-
-    int frq = frequenz;
 
     ui->fr_8->setValue(frequenz / 100000000);
     frequenz = frequenz % 100000000;
@@ -328,7 +347,30 @@ void MainWindow::SetFrequenzDisplay(int frequenz)
     frequenz = frequenz % 1;
 }
 
-void MainWindow::OnFrequencyChanged(int arg1)
+void MainWindow::SetWaveForm(int waveform)
+{
+    ui->Wave0->setIcon(*wave0_off);
+    ui->Wave1->setIcon(*wave1_off);
+    ui->Wave2->setIcon(*wave2_off);
+
+    switch(waveform)
+    {
+    case 0:
+        ui->Wave0->setIcon(*wave0_on);
+
+        break;
+    case 1:
+        ui->Wave1->setIcon(*wave1_on);
+        break;
+    case 2:
+        ui->Wave2->setIcon(*wave2_on);
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWindow::OnFrequencyChanged(int)
 {
     int frequenz =  ui->fr_0->value() + \
                     ui->fr_1->value()*10 + \
@@ -341,4 +383,22 @@ void MainWindow::OnFrequencyChanged(int arg1)
                     ui->fr_8->value()*100000000;
 
     serial->write(protokoll->GetSendCommandString(code_Frequency, frequenz).toAscii());
+}
+
+void MainWindow::on_Wave0_clicked()
+{
+    SetWaveForm(0);
+    serial->write(protokoll->GetSendCommandString(code_Waveform, 0).toAscii());
+}
+
+void MainWindow::on_Wave1_clicked()
+{
+    SetWaveForm(1);
+    serial->write(protokoll->GetSendCommandString(code_Waveform, 1).toAscii());
+}
+
+void MainWindow::on_Wave2_clicked()
+{
+    SetWaveForm(2);
+    serial->write(protokoll->GetSendCommandString(code_Waveform, 2).toAscii());
 }
