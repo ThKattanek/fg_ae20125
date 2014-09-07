@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->PresetGroup->setEnabled(false);
     ui->SweepGroup->setEnabled(false);
     ui->ModGroup->setEnabled(false);
+    ui->InfoGroup->setEnabled(false);
 
     // PLL Einstellungen deaktivieren //
     SetPLLEnable(0);
@@ -309,6 +310,18 @@ void MainWindow::serial_incomming_data()
                     ui->PLLOffset->setValue(protokoll->data);
                     break;
 
+                case code_HardwareRevision:
+                    ui->HardwareVersion->setText(QVariant(protokoll->data).toString());
+                    break;
+
+                case code_FirmwareRevision:
+                    ui->SoftwareVersion->setText(QVariant(protokoll->data).toString());
+                    break;
+
+                case code_ProduktID:
+                    ui->ProduktID->setText(QVariant(protokoll->data).toString());
+                    break;
+
                 case code_KeepAlive:
                     keep_alive = true;
                     break;
@@ -347,6 +360,7 @@ void MainWindow::on_actionVerbinden_triggered()
             ui->PresetGroup->setEnabled(true);
             ui->SweepGroup->setEnabled(true);
             ui->ModGroup->setEnabled(true);
+            ui->InfoGroup->setEnabled(true);
 
             Sleep(1000);
             SendCmd(code_GetSettings, 0);
@@ -380,6 +394,7 @@ void MainWindow::on_actionTrennen_triggered()
     ui->PresetGroup->setEnabled(false);
     ui->SweepGroup->setEnabled(false);
     ui->ModGroup->setEnabled(false);
+    ui->InfoGroup->setEnabled(false);
 
     isConnected = false;
 }

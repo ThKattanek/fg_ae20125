@@ -24,6 +24,10 @@ bool AscelProtokoll::CheckCommand(QString commandline)
         case code_PLLReferenceEnable:
         case code_PLLFactor:
         case code_PLLOffsett:
+        case code_HardwareRevision:
+        case code_FirmwareRevision:
+        case code_ProduktID:
+
             data = list.at(2).toInt(&ok);
             if(!ok) return false;
             return true;
