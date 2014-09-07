@@ -19,19 +19,19 @@ bool AscelProtokoll::CheckCommand(QString commandline)
     switch(command)
     {
         case code_Frequency:
-            data = list.at(2).toInt(&ok);
-            if(!ok) return false;
-            return true;
-        break;
-
         case code_Waveform:
+        case code_Mode:
             data = list.at(2).toInt(&ok);
             if(!ok) return false;
             return true;
-        break;
+            break;
+
+        case code_KeepAlive:
+            return true;
+            break;
 
         default:
-        break;
+            break;
     }
 
     return false;

@@ -39,7 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     wave2_on = new QIcon(":/icons/icons/wave2.png");
     wave2_off = new QIcon(":/icons/icons/wave2_grey.png");
 
-    SetWaveForm(4); // Alle ausschalten
+    SetWaveForm(3); // Alle ausschalten
+    SetModus(3);    // Alle ausschalten
 
     /// CurrentPath holen und abspeichern ///
     appPath = QDir::currentPath();
@@ -250,12 +251,19 @@ void MainWindow::serial_incomming_data()
                 //ui->label->setText("Alles OK!");
                 switch(protokoll->command)
                 {
-                    case code_Frequency:
-                        SetFrequenzDisplay(protokoll->data);
+                case code_Frequency:
+                    SetFrequenzDisplay(protokoll->data);
                     break;
 
-                    case code_Waveform:
-                        SetWaveForm(protokoll->data);
+                case code_Waveform:
+                    SetWaveForm(protokoll->data);
+                    break;
+
+                case code_Mode:
+                    SetModus(protokoll->data);
+                    break;
+                case code_KeepAlive:
+                    keep_alive = true;
                     break;
                 }
             }
@@ -370,6 +378,28 @@ void MainWindow::SetWaveForm(int waveform)
     }
 }
 
+void MainWindow::SetModus(int mode)
+{
+    ui->Mode0->setIcon(*led_off);
+    ui->Mode1->setIcon(*led_off);
+    ui->Mode2->setIcon(*led_off);
+
+    switch(mode)
+    {
+    case 0:
+        ui->Mode0->setIcon(*led_on);
+        break;
+    case 1:
+        ui->Mode1->setIcon(*led_on);
+        break;
+    case 2:
+        ui->Mode2->setIcon(*led_on);
+        break;
+    default:
+        break;
+    }
+}
+
 void MainWindow::OnFrequencyChanged(int)
 {
     int frequenz =  ui->fr_0->value() + \
@@ -401,4 +431,31 @@ void MainWindow::on_Wave2_clicked()
 {
     SetWaveForm(2);
     serial->write(protokoll->GetSendCommandString(code_Waveform, 2).toAscii());
+}
+
+void MainWindow::on_Mode0_clicked()
+{
+    SetModus(0);
+    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
+    //keep_alive = false;
+    //while(!keep_alive);
+    serial->write(protokoll->GetSendCommandString(code_Mode, 0).toAscii());
+}
+
+void MainWindow::on_Mode1_clicked()
+{
+    SetModus(1);
+    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
+    //keep_alive = false;
+    //while(!keep_alive);
+    serial->write(protokoll->GetSendCommandString(code_Mode, 1).toAscii());
+}
+
+void MainWindow::on_Mode2_clicked()
+{
+    SetModus(2);
+    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
+    //keep_alive = false;
+    //while(!keep_alive);
+    serial->write(protokoll->GetSendCommandString(code_Mode, 2).toAscii());
 }

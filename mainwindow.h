@@ -28,6 +28,7 @@ public:
 
     void SetFrequenzDisplay(int frquenz);
     void SetWaveForm(int waveform);
+    void SetModus(int mode);
 
 private:
     Ui::MainWindow *ui;
@@ -70,6 +71,8 @@ private:
     QIcon *led_on, *led_off;
     QIcon *wave0_on, *wave0_off, *wave1_on, *wave1_off, *wave2_on, *wave2_off;
 
+    bool keep_alive;
+
 private slots:
     void slotLanguageChanged(QAction* action);
     void on_action_Beeden_triggered();
@@ -82,6 +85,9 @@ private slots:
     void on_Wave0_clicked();
     void on_Wave1_clicked();
     void on_Wave2_clicked();
+    void on_Mode0_clicked();
+    void on_Mode1_clicked();
+    void on_Mode2_clicked();
 };
 
 #endif // MAINWINDOW_H
