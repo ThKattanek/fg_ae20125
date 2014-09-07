@@ -560,7 +560,7 @@
    <widget class="QGroupBox" name="PresetGroup">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>410</x>
       <y>150</y>
       <width>120</width>
       <height>161</height>
@@ -575,13 +575,121 @@
      <rect>
       <x>260</x>
       <y>150</y>
-      <width>120</width>
+      <width>141</width>
       <height>161</height>
      </rect>
     </property>
     <property name="title">
      <string>PLL Referenz</string>
     </property>
+    <widget class="QCheckBox" name="PLLEnable">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>PLL Referenz einschalten.</string>
+     </property>
+     <property name="text">
+      <string>Aktiviert</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PLLLabel0">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Faktor:</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="PLLFactor">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>60</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Hier geben Sie den PLL Faktor ein (1.0 - 999.0)</string>
+     </property>
+     <property name="decimals">
+      <number>1</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>999.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.100000000000000</double>
+     </property>
+     <property name="value">
+      <double>1.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PLLLabel1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Offset:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="PLLOffset">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Hier geben Sie den PLL Offset ein (-1*10^9 - +1*10^9)</string>
+     </property>
+     <property name="minimum">
+      <number>-1000000000</number>
+     </property>
+     <property name="maximum">
+      <number>1000000000</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PLLLabel2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hz</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="SweepGroup">
     <property name="geometry">

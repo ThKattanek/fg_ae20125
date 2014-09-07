@@ -21,6 +21,9 @@ bool AscelProtokoll::CheckCommand(QString commandline)
         case code_Frequency:
         case code_Waveform:
         case code_Mode:
+        case code_PLLReferenceEnable:
+        case code_PLLFactor:
+        case code_PLLOffsett:
             data = list.at(2).toInt(&ok);
             if(!ok) return false;
             return true;

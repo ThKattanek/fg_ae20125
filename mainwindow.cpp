@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->fr_7,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
     connect(ui->fr_8,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
 
+    // Alle Gruppen deaktivieren //
     ui->FrequenzGroup->setEnabled(false);
     ui->WaveGroup->setEnabled(false);
     ui->ModusGroup->setEnabled(false);
@@ -32,6 +33,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->PresetGroup->setEnabled(false);
     ui->SweepGroup->setEnabled(false);
     ui->ModGroup->setEnabled(false);
+
+    // PLL Einstellungen deaktivieren //
+    SetPLLEnable(0);
 
     /// Icons Laden ///
 
@@ -291,6 +295,20 @@ void MainWindow::serial_incomming_data()
                     old_mode = protokoll->data;
                     SetModus(protokoll->data);
                     break;
+
+                case code_PLLReferenceEnable:
+                    ui->PLLEnable->setChecked(protokoll->data);
+                    SetPLLEnable(protokoll->data);
+                    break;
+
+                case code_PLLFactor:
+                    ui->PLLFactor->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_PLLOffsett:
+                    ui->PLLOffset->setValue(protokoll->data);
+                    break;
+
                 case code_KeepAlive:
                     keep_alive = true;
                     break;
@@ -501,4 +519,42 @@ void MainWindow::on_Mode2_clicked()
     if(old_mode == 1) SendCmd(code_ReturnFromSweep, 0);
     SendCmd(code_Mode, 2);
     old_mode = 2;
+}
+
+void MainWindow::SetPLLEnable(int data)
+{
+    if(data == 0)
+    {
+        // is Disabled
+        ui->PLLFactor->setEnabled(false);
+        ui->PLLOffset->setEnabled(false);
+        ui->PLLLabel0->setEnabled(false);
+        ui->PLLLabel1->setEnabled(false);
+        ui->PLLLabel2->setEnabled(false);
+    }
+    else
+    {
+        // is Enabled
+        ui->PLLFactor->setEnabled(true);
+        ui->PLLOffset->setEnabled(true);
+        ui->PLLLabel0->setEnabled(true);
+        ui->PLLLabel1->setEnabled(true);
+        ui->PLLLabel2->setEnabled(true);
+    }
+}
+
+void MainWindow::on_PLLEnable_clicked(bool checked)
+{
+    SetPLLEnable(checked);
+    SendCmd(code_PLLReferenceEnable,checked);
+}
+
+void MainWindow::on_PLLFactor_valueChanged(double arg1)
+{
+    SendCmd(code_PLLFactor,arg1 * 10);
+}
+
+void MainWindow::on_PLLOffset_valueChanged(int arg1)
+{
+    SendCmd(code_PLLOffsett,arg1);
 }

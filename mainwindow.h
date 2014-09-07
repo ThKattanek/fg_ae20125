@@ -32,6 +32,7 @@ public:
     void SetFrequenzDisplay(int frquenz);
     void SetWaveForm(int waveform);
     void SetModus(int mode);
+    void SetPLLEnable(int data);
 
 private:
     Ui::MainWindow *ui;
@@ -92,6 +93,9 @@ private slots:
     void on_Mode0_clicked();
     void on_Mode1_clicked();
     void on_Mode2_clicked();
+    void on_PLLEnable_clicked(bool checked);
+    void on_PLLFactor_valueChanged(double arg1);
+    void on_PLLOffset_valueChanged(int arg1);
 };
 
 #endif // MAINWINDOW_H
