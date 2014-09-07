@@ -26,6 +26,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void Sleep(int ms);
+    void SendCmd(char code, int data);
+
     void SetFrequenzDisplay(int frquenz);
     void SetWaveForm(int waveform);
     void SetModus(int mode);
@@ -72,6 +75,7 @@ private:
     QIcon *wave0_on, *wave0_off, *wave1_on, *wave1_off, *wave2_on, *wave2_off;
 
     bool keep_alive;
+    int old_mode;
 
 private slots:
     void slotLanguageChanged(QAction* action);

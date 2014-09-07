@@ -27,6 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->FrequenzGroup->setEnabled(false);
     ui->WaveGroup->setEnabled(false);
+    ui->ModusGroup->setEnabled(false);
+    ui->PLLGroup->setEnabled(false);
+    ui->PresetGroup->setEnabled(false);
+    ui->SweepGroup->setEnabled(false);
+    ui->ModGroup->setEnabled(false);
 
     /// Icons Laden ///
 
@@ -99,6 +104,26 @@ MainWindow::~MainWindow()
     if(config != NULL) delete config;
 
     if(protokoll != NULL) delete protokoll;
+}
+
+#ifdef Q_OS_WIN
+#include <windows.h> // for Sleep
+#endif
+void MainWindow::Sleep(int ms)
+{
+    if(ms <= 0) return;
+#ifdef Q_OS_WIN
+    Sleep(uint(ms));
+#else
+    struct timespec ts = { ms / 1000, (ms % 1000) * 1000 * 1000 };
+    nanosleep(&ts, NULL);
+#endif
+}
+
+void MainWindow::SendCmd(char code, int data)
+{
+    serial->write(protokoll->GetSendCommandString(code, data).toAscii());
+    serial->waitForBytesWritten(-1);
 }
 
 void MainWindow::CreateLanguageMenu(QString defaultLocale)
@@ -224,7 +249,7 @@ void MainWindow::serial_error(QSerialPort::SerialPortError error)
     if (error == QSerialPort::ResourceError)
     {
         on_actionTrennen_triggered();
-        QMessageBox::critical(this, tr("Fehler"), serial->errorString());
+        qDebug() << tr("Fehler") << serial->errorString();
     }
 }
 
@@ -235,6 +260,9 @@ void MainWindow::serial_incomming_data()
     static unsigned short puffer_pos;
 
     QByteArray data = serial->readAll();
+
+    while (serial->waitForReadyRead(10))
+        data += serial->readAll();
 
     for(int i=0;i<data.length();i++)
     {
@@ -260,6 +288,7 @@ void MainWindow::serial_incomming_data()
                     break;
 
                 case code_Mode:
+                    old_mode = protokoll->data;
                     SetModus(protokoll->data);
                     break;
                 case code_KeepAlive:
@@ -288,12 +317,21 @@ void MainWindow::on_actionVerbinden_triggered()
                 )
         {
             isConnected = true;
+
+            old_mode = 0;
+
             ui->actionVerbinden->setEnabled(false);
             ui->actionTrennen->setEnabled(true);
             ui->FrequenzGroup->setEnabled(true);
             ui->WaveGroup->setEnabled(true);
+            ui->ModusGroup->setEnabled(true);
+            ui->PLLGroup->setEnabled(true);
+            ui->PresetGroup->setEnabled(true);
+            ui->SweepGroup->setEnabled(true);
+            ui->ModGroup->setEnabled(true);
 
-            serial->write(protokoll->GetSettingsCommand().toAscii());
+            Sleep(1000);
+            SendCmd(code_GetSettings, 0);
         }
         else
         {
@@ -319,6 +357,11 @@ void MainWindow::on_actionTrennen_triggered()
     ui->actionTrennen->setEnabled(false);
     ui->FrequenzGroup->setEnabled(false);
     ui->WaveGroup->setEnabled(false);
+    ui->ModusGroup->setEnabled(false);
+    ui->PLLGroup->setEnabled(false);
+    ui->PresetGroup->setEnabled(false);
+    ui->SweepGroup->setEnabled(false);
+    ui->ModGroup->setEnabled(false);
 
     isConnected = false;
 }
@@ -412,50 +455,50 @@ void MainWindow::OnFrequencyChanged(int)
                     ui->fr_7->value()*10000000 + \
                     ui->fr_8->value()*100000000;
 
-    serial->write(protokoll->GetSendCommandString(code_Frequency, frequenz).toAscii());
+    SendCmd(code_Frequency, frequenz);
 }
 
 void MainWindow::on_Wave0_clicked()
 {
     SetWaveForm(0);
-    serial->write(protokoll->GetSendCommandString(code_Waveform, 0).toAscii());
+    SendCmd(code_Waveform, 0);
 }
 
 void MainWindow::on_Wave1_clicked()
 {
     SetWaveForm(1);
-    serial->write(protokoll->GetSendCommandString(code_Waveform, 1).toAscii());
+    SendCmd(code_Waveform, 1);
 }
 
 void MainWindow::on_Wave2_clicked()
 {
     SetWaveForm(2);
-    serial->write(protokoll->GetSendCommandString(code_Waveform, 2).toAscii());
+    SendCmd(code_Waveform, 2);
 }
 
+// Modus Normal setzen //
 void MainWindow::on_Mode0_clicked()
 {
     SetModus(0);
-    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
-    //keep_alive = false;
-    //while(!keep_alive);
-    serial->write(protokoll->GetSendCommandString(code_Mode, 0).toAscii());
+    SendCmd(code_ReturnFromSweep, 0);
+    SendCmd(code_Mode, 0);
+    old_mode = 0;
 }
 
+// Modus Sweep setzen //
 void MainWindow::on_Mode1_clicked()
 {
     SetModus(1);
-    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
-    //keep_alive = false;
-    //while(!keep_alive);
-    serial->write(protokoll->GetSendCommandString(code_Mode, 1).toAscii());
+    if(old_mode == 2) SendCmd(code_ReturnFromSweep, 0);
+    SendCmd(code_Mode, 1);
+    old_mode = 1;
 }
 
+// Modus Modulation setzen //
 void MainWindow::on_Mode2_clicked()
 {
     SetModus(2);
-    serial->write(protokoll->GetSendCommandString(code_ReturnFromSweep, 0).toAscii());
-    //keep_alive = false;
-    //while(!keep_alive);
-    serial->write(protokoll->GetSendCommandString(code_Mode, 2).toAscii());
+    if(old_mode == 1) SendCmd(code_ReturnFromSweep, 0);
+    SendCmd(code_Mode, 2);
+    old_mode = 2;
 }

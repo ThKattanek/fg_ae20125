@@ -40,11 +40,6 @@ bool AscelProtokoll::CheckCommand(QString commandline)
 QString AscelProtokoll::GetSendCommandString(char command, int data)
 {
     QString str;
-    str = "201:" + QString(command) + ":" + QVariant(data).toString() + ";";
+    str = "201:" + QString(command) + ":" + QVariant(data).toString() + ":;";
     return str;
-}
-
-QString AscelProtokoll::GetSettingsCommand()
-{
-    return "201:T:0;";
 }

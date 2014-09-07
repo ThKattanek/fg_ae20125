@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>704</width>
-    <height>387</height>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
       <string>Frequenz im kHz Bereich verändern.</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(180, 180, 255);</string>
+      <string notr="true">background-color: rgb(190, 190, 255);</string>
      </property>
      <property name="maximum">
       <number>9</number>
@@ -124,7 +124,7 @@
       <string>Frequenz im kHz Bereich verändern.</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(180, 180, 255);</string>
+      <string notr="true">background-color: rgb(190, 190, 255);</string>
      </property>
      <property name="maximum">
       <number>9</number>
@@ -196,7 +196,7 @@
       <string>Frequenz im kHz Bereich verändern.</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(180, 180, 255);</string>
+      <string notr="true">background-color: rgb(190, 190, 255);</string>
      </property>
      <property name="maximum">
       <number>9</number>
@@ -393,7 +393,7 @@
       <x>10</x>
       <y>150</y>
       <width>121</width>
-      <height>151</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -475,13 +475,13 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="ModusGroup">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>150</y>
       <width>111</width>
-      <height>151</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -495,6 +495,9 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Schaltet auf Normal Modus um.</string>
      </property>
      <property name="text">
       <string>Normal</string>
@@ -514,6 +517,9 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Schaltet auf Sweep Modus um.</string>
      </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
@@ -537,6 +543,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Schaltet auf Modulations Modus um.</string>
+     </property>
      <property name="text">
       <string>Modulation</string>
      </property>
@@ -547,6 +556,58 @@
       <bool>true</bool>
      </property>
     </widget>
+   </widget>
+   <widget class="QGroupBox" name="PresetGroup">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>150</y>
+      <width>120</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Voreinstellungen</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="PLLGroup">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>150</y>
+      <width>120</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>PLL Referenz</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="SweepGroup">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>331</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Sweep Einstellungen</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="ModGroup">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>320</y>
+      <width>341</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Modulations Einstellungen</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

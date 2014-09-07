@@ -48,9 +48,8 @@ public:
     AscelProtokoll();
     bool CheckCommand(QString command);
     QString GetSendCommandString(char command, int data);
-    QString GetSettingsCommand();
 
-    int command;
+    char command;
     int data;
 
 };
