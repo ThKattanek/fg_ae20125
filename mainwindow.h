@@ -96,6 +96,11 @@ private slots:
     void on_PLLEnable_clicked(bool checked);
     void on_PLLFactor_valueChanged(double arg1);
     void on_PLLOffset_valueChanged(int arg1);
+    void on_SweepStartFreq_valueChanged(double arg1);
+    void on_SweepStopFreq_valueChanged(double arg1);
+    void on_SweepFreq_valueChanged(double arg1);
+    void on_SweepLoop_clicked();
+    void on_SweepSwing_clicked();
 };
 
 #endif // MAINWINDOW_H

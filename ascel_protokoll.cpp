@@ -24,6 +24,10 @@ bool AscelProtokoll::CheckCommand(QString commandline)
         case code_PLLReferenceEnable:
         case code_PLLFactor:
         case code_PLLOffsett:
+        case code_SweepStartFrequency:
+        case code_SweepStopFrequency:
+        case code_SweepFrequency:
+        case code_SweepMode:
         case code_HardwareRevision:
         case code_FirmwareRevision:
         case code_ProduktID:

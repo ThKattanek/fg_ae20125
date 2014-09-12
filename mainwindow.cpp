@@ -310,6 +310,31 @@ void MainWindow::serial_incomming_data()
                     ui->PLLOffset->setValue(protokoll->data);
                     break;
 
+                case code_SweepStartFrequency:
+                    ui->SweepStartFreq->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_SweepStopFrequency:
+                    ui->SweepStopFreq->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_SweepFrequency:
+                    ui->SweepFreq->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_SweepMode:
+                    switch(protokoll->data)
+                    {
+                    case 0: // LOOP
+                        ui->SweepLoop->setChecked(true);
+                        break;
+                    case 1: // SWING
+                        ui->SweepSwing->setChecked(true);
+                        break;
+                    default:;
+                    }
+                    break;
+
                 case code_HardwareRevision:
                     ui->HardwareVersion->setText(QVariant(protokoll->data).toString());
                     break;
@@ -464,9 +489,17 @@ void MainWindow::SetModus(int mode)
     {
     case 0:
         ui->Mode0->setIcon(*led_on);
+        ui->SweepGroup->setEnabled(true);
+        ui->FrequenzGroup->setEnabled(true);
+        ui->WaveGroup->setEnabled(true);
+        ui->PLLGroup->setEnabled(true);
         break;
     case 1:
         ui->Mode1->setIcon(*led_on);
+        ui->SweepGroup->setEnabled(false);
+        ui->FrequenzGroup->setEnabled(false);
+        ui->WaveGroup->setEnabled(false);
+        ui->PLLGroup->setEnabled(false);
         break;
     case 2:
         ui->Mode2->setIcon(*led_on);
@@ -516,6 +549,8 @@ void MainWindow::on_Mode0_clicked()
     SendCmd(code_ReturnFromSweep, 0);
     SendCmd(code_Mode, 0);
     old_mode = 0;
+
+    ui->SweepGroup->setEnabled(true);
 }
 
 // Modus Sweep setzen //
@@ -525,6 +560,11 @@ void MainWindow::on_Mode1_clicked()
     if(old_mode == 2) SendCmd(code_ReturnFromSweep, 0);
     SendCmd(code_Mode, 1);
     old_mode = 1;
+
+    ui->SweepGroup->setEnabled(false);
+    ui->FrequenzGroup->setEnabled(false);
+    ui->WaveGroup->setEnabled(false);
+    ui->PLLGroup->setEnabled(false);
 }
 
 // Modus Modulation setzen //
@@ -572,4 +612,29 @@ void MainWindow::on_PLLFactor_valueChanged(double arg1)
 void MainWindow::on_PLLOffset_valueChanged(int arg1)
 {
     SendCmd(code_PLLOffsett,arg1);
+}
+
+void MainWindow::on_SweepStartFreq_valueChanged(double arg1)
+{
+    SendCmd(code_SweepStartFrequency,arg1 * 10);
+}
+
+void MainWindow::on_SweepStopFreq_valueChanged(double arg1)
+{
+    SendCmd(code_SweepStopFrequency,arg1 * 10);
+}
+
+void MainWindow::on_SweepFreq_valueChanged(double arg1)
+{
+    SendCmd(code_SweepFrequency,arg1 * 10);
+}
+
+void MainWindow::on_SweepLoop_clicked()
+{
+    SendCmd(code_SweepMode,0);
+}
+
+void MainWindow::on_SweepSwing_clicked()
+{
+    SendCmd(code_SweepMode,1);
 }
