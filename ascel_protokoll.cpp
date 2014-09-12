@@ -31,6 +31,11 @@ bool AscelProtokoll::CheckCommand(QString commandline)
         case code_HardwareRevision:
         case code_FirmwareRevision:
         case code_ProduktID:
+        case code_ModulationType:
+        case code_ModulationSource:
+        case code_FSKFrequency:
+        case code_PSKPhase:
+        case code_InternalModulationFrequency:
 
             data = list.at(2).toInt(&ok);
             if(!ok) return false;

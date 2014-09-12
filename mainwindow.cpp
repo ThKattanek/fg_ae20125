@@ -335,6 +335,50 @@ void MainWindow::serial_incomming_data()
                     }
                     break;
 
+                case code_ModulationType:
+                    switch(protokoll->data)
+                    {
+                    case 0: // FSK
+                        ui->ModFSK->setChecked(true);
+                        ui->ModFreq->setEnabled(true);
+                        ui->ModPhase->setEnabled(false);
+                        break;
+                    case 1: // PSK
+                        ui->ModPSK->setChecked(true);
+                        ui->ModFreq->setEnabled(false);
+                        ui->ModPhase->setEnabled(true);
+                        break;
+                    default:;
+                    }
+                    break;
+
+                case code_FSKFrequency:
+                    ui->ModFreq->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_PSKPhase:
+                    ui->ModPhase->setValue((float)protokoll->data / 10.0f);
+                    break;
+
+                case code_ModulationSource:
+                    switch(protokoll->data)
+                    {
+                    case 0: // INT
+                        ui->ModSrcInt->setChecked(true);
+                        ui->ModIntFreq->setEnabled(true);
+                        break;
+                    case 1: // EXT
+                        ui->ModSrcExt->setChecked(true);
+                        ui->ModIntFreq->setEnabled(false);
+                        break;
+                    default:;
+                    }
+                    break;
+
+                case code_InternalModulationFrequency:
+                    ui->ModIntFreq->setValue((float)protokoll->data / 10.0f);
+                    break;
+
                 case code_HardwareRevision:
                     ui->HardwareVersion->setText(QVariant(protokoll->data).toString());
                     break;
@@ -490,6 +534,7 @@ void MainWindow::SetModus(int mode)
     case 0:
         ui->Mode0->setIcon(*led_on);
         ui->SweepGroup->setEnabled(true);
+        ui->ModGroup->setEnabled(true);
         ui->FrequenzGroup->setEnabled(true);
         ui->WaveGroup->setEnabled(true);
         ui->PLLGroup->setEnabled(true);
@@ -497,12 +542,18 @@ void MainWindow::SetModus(int mode)
     case 1:
         ui->Mode1->setIcon(*led_on);
         ui->SweepGroup->setEnabled(false);
+        ui->ModGroup->setEnabled(false);
         ui->FrequenzGroup->setEnabled(false);
         ui->WaveGroup->setEnabled(false);
         ui->PLLGroup->setEnabled(false);
         break;
     case 2:
         ui->Mode2->setIcon(*led_on);
+        ui->SweepGroup->setEnabled(false);
+        ui->ModGroup->setEnabled(false);
+        ui->FrequenzGroup->setEnabled(false);
+        ui->WaveGroup->setEnabled(false);
+        ui->PLLGroup->setEnabled(false);
         break;
     default:
         break;
@@ -560,11 +611,6 @@ void MainWindow::on_Mode1_clicked()
     if(old_mode == 2) SendCmd(code_ReturnFromSweep, 0);
     SendCmd(code_Mode, 1);
     old_mode = 1;
-
-    ui->SweepGroup->setEnabled(false);
-    ui->FrequenzGroup->setEnabled(false);
-    ui->WaveGroup->setEnabled(false);
-    ui->PLLGroup->setEnabled(false);
 }
 
 // Modus Modulation setzen //
@@ -637,4 +683,45 @@ void MainWindow::on_SweepLoop_clicked()
 void MainWindow::on_SweepSwing_clicked()
 {
     SendCmd(code_SweepMode,1);
+}
+
+void MainWindow::on_ModFSK_clicked()
+{
+    SendCmd(code_ModulationType,0);
+    ui->ModFreq->setEnabled(true);
+    ui->ModPhase->setEnabled(false);
+}
+
+void MainWindow::on_ModPSK_clicked()
+{
+    SendCmd(code_ModulationType,1);
+    ui->ModFreq->setEnabled(false);
+    ui->ModPhase->setEnabled(true);
+}
+
+void MainWindow::on_ModFreq_valueChanged(double arg1)
+{
+    SendCmd(code_FSKFrequency, arg1 * 10);
+}
+
+void MainWindow::on_ModPhase_valueChanged(double arg1)
+{
+    SendCmd(code_PSKPhase, arg1 * 10);
+}
+
+void MainWindow::on_ModSrcExt_clicked()
+{
+    SendCmd(code_ModulationSource,1);
+    ui->ModIntFreq->setEnabled(false);
+}
+
+void MainWindow::on_ModSrcInt_clicked()
+{
+    SendCmd(code_ModulationSource,0);
+    ui->ModIntFreq->setEnabled(true);
+}
+
+void MainWindow::on_ModIntFreq_valueChanged(double arg1)
+{
+    SendCmd(code_InternalModulationFrequency,arg1 * 10);
 }

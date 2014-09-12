@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>704</width>
-    <height>563</height>
+    <width>701</width>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -623,6 +623,9 @@
      <property name="statusTip">
       <string>Hier geben Sie den PLL Faktor ein (1.0 - 999.0)</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
      <property name="decimals">
       <number>1</number>
      </property>
@@ -663,6 +666,9 @@
      </property>
      <property name="statusTip">
       <string>Hier geben Sie den PLL Offset ein (-1*10^9 - +1*10^9)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
      <property name="minimum">
       <number>-1000000000</number>
@@ -764,6 +770,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
      <property name="decimals">
       <number>1</number>
      </property>
@@ -789,6 +798,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
      <property name="decimals">
       <number>1</number>
      </property>
@@ -811,8 +823,14 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
      <property name="decimals">
       <number>1</number>
+     </property>
+     <property name="minimum">
+      <double>0.100000000000000</double>
      </property>
      <property name="maximum">
       <double>10.000000000000000</double>
@@ -834,7 +852,7 @@
       <string>Loop</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QRadioButton" name="SweepSwing">
@@ -911,6 +929,246 @@
     <property name="title">
      <string>Modulations Einstellungen</string>
     </property>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>29</y>
+       <width>191</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Typ</string>
+     </property>
+     <widget class="QRadioButton" name="ModFSK">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>FSK</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="ModPSK">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PSK</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="ModFreq">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>40</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="decimals">
+       <number>1</number>
+      </property>
+      <property name="minimum">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>10000000.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="ModPhase">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>90</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="decimals">
+       <number>1</number>
+      </property>
+      <property name="minimum">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>359.899999999999977</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequenz:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>94</y>
+        <width>45</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Phase:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="PLLLabel2_5">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>40</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hz</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="PLLLabel2_6">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>90</y>
+        <width>16</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>29</y>
+       <width>211</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Quelle</string>
+     </property>
+     <widget class="QRadioButton" name="ModSrcInt">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>84</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Intern</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="ModSrcExt">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>84</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Extern</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="PLLLabel2_7">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hz</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Int. Frequenz:</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="ModIntFreq">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>80</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="decimals">
+       <number>1</number>
+      </property>
+      <property name="minimum">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>10000.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="InfoGroup">
     <property name="geometry">
@@ -1030,7 +1288,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>704</width>
+     <width>701</width>
      <height>16</height>
     </rect>
    </property>

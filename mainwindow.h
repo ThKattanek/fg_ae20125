@@ -101,6 +101,13 @@ private slots:
     void on_SweepFreq_valueChanged(double arg1);
     void on_SweepLoop_clicked();
     void on_SweepSwing_clicked();
+    void on_ModFSK_clicked();
+    void on_ModPSK_clicked();
+    void on_ModFreq_valueChanged(double arg1);
+    void on_ModPhase_valueChanged(double arg1);
+    void on_ModSrcExt_clicked();
+    void on_ModSrcInt_clicked();
+    void on_ModIntFreq_valueChanged(double arg1);
 };
 
 #endif // MAINWINDOW_H
