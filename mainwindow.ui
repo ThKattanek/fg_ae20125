@@ -621,7 +621,7 @@
       </rect>
      </property>
      <property name="statusTip">
-      <string>Hier geben Sie den PLL Faktor ein (1.0 - 999.0)</string>
+      <string>Hier geben Sie den PLL Faktor ein (1.0 - 999.0).</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -665,7 +665,7 @@
       </rect>
      </property>
      <property name="statusTip">
-      <string>Hier geben Sie den PLL Offset ein (-1*10^9 - +1*10^9)</string>
+      <string>Hier geben Sie den PLL Offset ein (-1*10^9 - +1*10^9).</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -770,6 +770,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Hier stellen Sie die Start Frequenz für das Wobbeln ein.</string>
+     </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
@@ -798,6 +801,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Hier stellen Sie die End Frequenz für das Wobbeln ein.</string>
+     </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
@@ -822,6 +828,9 @@
        <width>101</width>
        <height>22</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Hier stellen Sie die Frequenz für das Wobbeln ein.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -848,6 +857,9 @@
        <height>17</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Sweep läuft bis End Frequenz und fängt wieder bei der Startfrequenz an.</string>
+     </property>
      <property name="text">
       <string>Loop</string>
      </property>
@@ -863,6 +875,9 @@
        <width>61</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Sweep läuft bis End Frequenz und läuft rückwärts wieder zur Startfrequenz an.</string>
      </property>
      <property name="text">
       <string>Swing</string>
@@ -950,6 +965,9 @@
         <height>17</height>
        </rect>
       </property>
+      <property name="statusTip">
+       <string>Frequency Shift Keying Modulation.</string>
+      </property>
       <property name="text">
        <string>FSK</string>
       </property>
@@ -963,6 +981,9 @@
         <height>17</height>
        </rect>
       </property>
+      <property name="statusTip">
+       <string>Phase Shift Keying Modulation.</string>
+      </property>
       <property name="text">
        <string>PSK</string>
       </property>
@@ -975,6 +996,9 @@
         <width>101</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="statusTip">
+       <string>Träger Frequenz.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1000,6 +1024,9 @@
         <width>101</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="statusTip">
+       <string>Träger Phasenwinkel.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1097,6 +1124,9 @@
         <height>17</height>
        </rect>
       </property>
+      <property name="statusTip">
+       <string>Intern erzeugtes Signal.</string>
+      </property>
       <property name="text">
        <string>Intern</string>
       </property>
@@ -1109,6 +1139,9 @@
         <width>84</width>
         <height>17</height>
        </rect>
+      </property>
+      <property name="statusTip">
+       <string>Modulationssignal als Externes Signal vom hinteren Anschluss.</string>
       </property>
       <property name="text">
        <string>Extern</string>
@@ -1151,6 +1184,9 @@
         <width>101</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="statusTip">
+       <string>Modulationssignal Frequenz.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1224,6 +1260,9 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="statusTip">
+      <string>Hardware Version</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -1244,6 +1283,9 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="statusTip">
+      <string>Software Version</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -1263,6 +1305,9 @@
        <weight>75</weight>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="statusTip">
+      <string>Produkt ID</string>
      </property>
      <property name="text">
       <string/>
