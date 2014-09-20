@@ -9,7 +9,7 @@ Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbess
 ### Version: 0.1 Beta ###
 
 ### Screenshot ###
-![fg_ae20125_screenshot.png](https://bitbucket.org/repo/Anp7Er/images/320879743-fg_ae20125_screenshot.png)
+![fg_ae20125_screenshot.png](https://bitbucket.org/repo/krdn96/images/3497482729-fg_ae20125_screenshot.png)
 ### Voraussetzung ###
 
 * installiertes git
