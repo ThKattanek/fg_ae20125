@@ -9,13 +9,13 @@ Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbess
 ### Version: 0.1 Beta ###
 
 ### Screenshot ###
-
+![fg_ae20125_screenshot.png](https://bitbucket.org/repo/Anp7Er/images/3182959433-fg_ae20125_screenshot.png)
 
 ### Voraussetzung ###
 
 * installiertes git
 * installiertes qt-sdk
-* QtSerialPort (<url>https://qt-project.org/wiki/QtSerialPort</url>)
+* QtSerialPort (https://qt-project.org/wiki/QtSerialPort)
 
 ### Bauen der Anwendung unter Linux ###
 
