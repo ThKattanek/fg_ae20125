@@ -66,22 +66,22 @@ QMAKE_PRE_LINK += lrelease translations/lang_de.ts \
 
 ## INSTALL LINUX (make install) ##
 
-target.path +=  /usr/bin/
-data.path += /usr/share/fg_ae20125
+target.path = /usr/bin/
+data.path = /usr/share/fg_ae20125
 
-helpfiles.path += /usr/share/fg_ae20125
+helpfiles.path = /usr/share/fg_ae20125
 #helpfiles.files += bin/help/*
 #helpfiles.files += bin/help/html/*.html
-desktop.path +=  /usr/share/applications
-desktop.files += fg_ae20125.desktop
-icon.path +=  /usr/share/pixmaps
-icon.files += fg_ae20125.svg
-languages.path += /usr/share/fg_ae20125/lang
-languages.files += translations/*.qm
+desktop.path =  /usr/share/applications
+desktop.files = fg_ae20125.desktop
+icon.path =  /usr/share/pixmaps
+icon.files = fg_ae20125.png
+languages.path = /usr/share/fg_ae20125/lang
+languages.files = translations/*.qm
 languages.files += translations/*.png
 INSTALLS += target
 INSTALLS += data
-INSTALLS += helpfiles
+#INSTALLS += helpfiles
 INSTALLS += desktop
 INSTALLS += icon    
 INSTALLS += languages
