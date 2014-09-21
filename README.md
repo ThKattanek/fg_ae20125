@@ -19,12 +19,10 @@ Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbess
 ### Bauen der Anwendung unter Linux ###
 
 #### Quellcode Clonen: ####
-
-
     >> git clone https://bitbucket.org/tkattanek/fg_ae20125.git
 #### Anwendung bauen: ####
-* qmake
-* make
+    >> qmake
+    >> make
 * make install (mit Root Rechte)
 
 Danach sollte die Anwendung im Menü oder Desktop zu sehen sein. Getestet unter Debian 7.4 (x32 und x64)
@@ -38,9 +36,9 @@ Danach sollte die Anwendung im Menü oder Desktop zu sehen sein. Getestet unter 
 
 ### Bauen der Anwendung unter Windows (MinGW32) ###
 
-* qmake
-* make
-* make release
-* make release-install
+    >> qmake
+    >> make
+    >> make release
+    >> make release-install
 
 #### !! Anstatt make könnte auch mingw32-make benutzt werden. ####
