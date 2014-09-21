@@ -13,6 +13,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QString SystemLocale = config->value("language","nope").toString();
     config->endGroup();
 
+    // Fenster Zentrieren
+    QDesktopWidget *desktop = QApplication::desktop();
+    int x = ( desktop->width() - width() ) / 2;
+    int y = ( desktop->height() - height() ) / 2;
+    move( x, y );
+
     ui->setupUi(this);
 
     connect(ui->fr_0,SIGNAL(valueChanged(int)),this,SLOT(OnFrequencyChanged(int)));
@@ -247,6 +253,8 @@ void MainWindow::on_actionEinstellungen_triggered()
         config->setValue("FlowControl",FlowControl);
         config->endGroup();
     }
+
+    delete setup_dialog;
 }
 
 void MainWindow::serial_error(QSerialPort::SerialPortError error)
@@ -724,4 +732,30 @@ void MainWindow::on_ModSrcInt_clicked()
 void MainWindow::on_ModIntFreq_valueChanged(double arg1)
 {
     SendCmd(code_InternalModulationFrequency,arg1 * 10);
+}
+
+void MainWindow::on_action_Info_triggered()
+{
+    info_dialog = new InfoDialog(this);
+    if(info_dialog == NULL)
+    {
+        return;
+    }
+
+    info_dialog->exec();
+
+    delete info_dialog;
+}
+
+void MainWindow::on_action_Linzenz_triggered()
+{
+    license_dialog = new LicenseDialog(this);
+    if(license_dialog == NULL)
+    {
+        return;
+    }
+
+    license_dialog->exec();
+
+    delete license_dialog;
 }

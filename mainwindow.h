@@ -10,9 +10,12 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QMessageBox>
 #include <QDebug>
+#include <QDesktopWidget>
 
 #include "ascel_protokoll.h"
 #include "setup_dialog.h"
+#include "license_dialog.h"
+#include "info_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -47,6 +50,8 @@ private:
 
 
     SetupDialog *setup_dialog;
+    LicenseDialog *license_dialog;
+    InfoDialog *info_dialog;
 
     // Schnittstellen Einstellungen //
     QString Port;
@@ -108,6 +113,8 @@ private slots:
     void on_ModSrcExt_clicked();
     void on_ModSrcInt_clicked();
     void on_ModIntFreq_valueChanged(double arg1);
+    void on_action_Info_triggered();
+    void on_action_Linzenz_triggered();
 };
 
 #endif // MAINWINDOW_H

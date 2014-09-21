@@ -1364,6 +1364,7 @@
      <string>&amp;Hilfe</string>
     </property>
     <addaction name="action_Info"/>
+    <addaction name="action_Linzenz"/>
    </widget>
    <addaction name="menu_Dateu"/>
    <addaction name="menuGer_t"/>
@@ -1437,8 +1438,21 @@
    </property>
   </action>
   <action name="action_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/information.png</normaloff>:/icons/icons/information.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Info</string>
+   </property>
+  </action>
+  <action name="action_Linzenz">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/text_document_wrap.png</normaloff>:/icons/icons/text_document_wrap.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Lizenz</string>
    </property>
   </action>
  </widget>

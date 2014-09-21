@@ -30,14 +30,21 @@ DESTDIR = "bin/win_x32"
 SOURCES += main.cpp\
         mainwindow.cpp \
     setup_dialog.cpp \
-    ascel_protokoll.cpp
+    ascel_protokoll.cpp \
+    license_dialog.cpp \
+    info_dialog.cpp
 
 HEADERS  += \
     setup_dialog.h \
     mainwindow.h \
-    ascel_protokoll.h
+    ascel_protokoll.h \
+    version.h \
+    license_dialog.h \
+    info_dialog.h
 FORMS    += mainwindow.ui \
-    setup_dialog.ui
+    setup_dialog.ui \
+    license_dialog.ui \
+    info_dialog.ui
 
 LIBS += -lQtSerialPort
 
@@ -47,7 +54,8 @@ OTHER_FILES += \
     translations/lang_en.ts \
     translations/lang_de.png \
     translations/lang_en.png \
-    docs/daten_protokoll_ascel.pdf
+    docs/daten_protokoll_ascel.pdf \
+    license.txt
 
 ## Translation Release ##
 

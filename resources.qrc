@@ -12,5 +12,10 @@
         <file>icons/wave1.png</file>
         <file>icons/wave2_grey.png</file>
         <file>icons/wave2.png</file>
+        <file>icons/information.png</file>
+        <file>icons/text_document_wrap.png</file>
+    </qresource>
+    <qresource prefix="/txt">
+        <file>license.txt</file>
     </qresource>
 </RCC>
