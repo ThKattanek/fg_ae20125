@@ -19,7 +19,9 @@ Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbess
 ### Bauen der Anwendung unter Linux ###
 
 #### Quellcode Clonen: ####
- >> git clone https://bitbucket.org/tkattanek/fg_ae20125.git
+
+
+    >> git clone https://bitbucket.org/tkattanek/fg_ae20125.git
 #### Anwendung bauen: ####
 * qmake
 * make
