@@ -14,7 +14,10 @@
    version="1.1"
    id="svg2985"
    height="256"
-   width="256">
+   width="256"
+   inkscape:export-filename="/home/thorsten/Programmierung/Projekte/Anwendungen_Tools/fg_ae20125/fg_ae20125.png"
+   inkscape:export-xdpi="22.5"
+   inkscape:export-ydpi="22.5">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,7 +27,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
      inkscape:cx="108.46626"
-     inkscape:cy="144.98006"
+     inkscape:cy="130.83792"
      inkscape:current-layer="layer3"
      showgrid="true"
      inkscape:grid-bbox="true"
@@ -180,7 +183,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
