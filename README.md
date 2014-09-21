@@ -6,7 +6,7 @@
 Diese Software erlaubt es den Funktionsgenerator von ASCEL AE20125 auch unter Linux zu benutzen. Dank des offenen
 Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbesserungen oder Änderungen sendet einfach ein Ticket !
 
-##### Version: 1.0.0 ####
+#### Version: 1.0.0 ####
 #### Lizenz: GPL Version 2 (http://www.gnu.org/licenses/gpl-2.0.html) ####
 ### Screenshot ###
 ![fg_ae20125_screenshot.png](https://bitbucket.org/repo/krdn96/images/3497482729-fg_ae20125_screenshot.png)
@@ -19,7 +19,7 @@ Datenprotokolls von ASCEL konnte ich diese Anwendung programmieren. Für Verbess
 ### Bauen der Anwendung unter Linux ###
 
 #### Quellcode Clonen: ####
-git clone https://bitbucket.org/tkattanek/fg_ae20125.git
+>> git clone https://bitbucket.org/tkattanek/fg_ae20125.git
 #### Anwendung bauen: ####
 * qmake
 * make
