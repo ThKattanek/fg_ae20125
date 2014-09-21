@@ -57,7 +57,7 @@
     <message>
         <location filename="../mainwindow.ui" line="27"/>
         <source>Frequenz</source>
-        <translation type="unfinished"></translation>
+        <translation>Frequency</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="46"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../mainwindow.ui" line="150"/>
         <source>kHz</source>
-        <translation type="unfinished"></translation>
+        <translation>kHz</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="170"/>
@@ -93,7 +93,7 @@
         <location filename="../mainwindow.ui" line="1083"/>
         <location filename="../mainwindow.ui" line="1160"/>
         <source>Hz</source>
-        <translation type="unfinished"></translation>
+        <translation>Hz</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="242"/>
@@ -103,33 +103,33 @@
     <message>
         <location filename="../mainwindow.ui" line="268"/>
         <source>MHz</source>
-        <translation type="unfinished"></translation>
+        <translation>MHz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="350"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="368"/>
         <location filename="../mainwindow.ui" line="386"/>
         <source>.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="400"/>
         <source>Wellenform</source>
-        <translation type="unfinished"></translation>
+        <translation>Waveform</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Sinus Wellenform aktivieren.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="415"/>
         <source>SINUS</source>
-        <translation type="unfinished"></translation>
+        <translation>SINUS</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="437"/>
@@ -139,7 +139,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>DREIECK</source>
-        <translation type="unfinished"></translation>
+        <translation>TRIANGLE</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="462"/>
@@ -149,12 +149,12 @@
     <message>
         <location filename="../mainwindow.ui" line="465"/>
         <source>RECHTECK</source>
-        <translation type="unfinished"></translation>
+        <translation>SQUARE</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="488"/>
         <source>Modus</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="500"/>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../mainwindow.ui" line="503"/>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="522"/>
@@ -174,7 +174,7 @@
     <message>
         <location filename="../mainwindow.ui" line="528"/>
         <source>Sweep</source>
-        <translation type="unfinished"></translation>
+        <translation>Sweep</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="547"/>
@@ -184,17 +184,17 @@
     <message>
         <location filename="../mainwindow.ui" line="550"/>
         <source>Modulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulation</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="570"/>
         <source>Voreinstellungen</source>
-        <translation type="unfinished"></translation>
+        <translation>Presets</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="583"/>
         <source>PLL Referenz</source>
-        <translation type="unfinished"></translation>
+        <translation>PLL Reference</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
@@ -204,12 +204,12 @@
     <message>
         <location filename="../mainwindow.ui" line="598"/>
         <source>Aktiviert</source>
-        <translation type="unfinished"></translation>
+        <translation>Enabled</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
         <source>Faktor:</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="624"/>
@@ -219,7 +219,7 @@
     <message>
         <location filename="../mainwindow.ui" line="655"/>
         <source>Offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Offset:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="668"/>
@@ -229,27 +229,27 @@
     <message>
         <location filename="../mainwindow.ui" line="710"/>
         <source>Sweep Einstellungen</source>
-        <translation type="unfinished"></translation>
+        <translation>Sweep settings</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="722"/>
         <source>Start Frequenz:</source>
-        <translation type="unfinished"></translation>
+        <translation>Start frequency:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="735"/>
         <source>End Frequenz:</source>
-        <translation type="unfinished"></translation>
+        <translation>End frequency:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="748"/>
         <source>Sweep Frequenz:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sweep frequency:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="761"/>
         <source>Sweep Mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sweep Mode:</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="774"/>
@@ -274,7 +274,7 @@
     <message>
         <location filename="../mainwindow.ui" line="864"/>
         <source>Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>Loop</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="880"/>
@@ -284,7 +284,7 @@
     <message>
         <location filename="../mainwindow.ui" line="883"/>
         <source>Swing</source>
-        <translation type="unfinished"></translation>
+        <translation>Swing</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="945"/>
@@ -294,7 +294,7 @@
     <message>
         <location filename="../mainwindow.ui" line="957"/>
         <source>Typ</source>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="969"/>
@@ -304,7 +304,7 @@
     <message>
         <location filename="../mainwindow.ui" line="972"/>
         <source>FSK</source>
-        <translation type="unfinished"></translation>
+        <translation>FSK</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="985"/>
@@ -314,7 +314,7 @@
     <message>
         <location filename="../mainwindow.ui" line="988"/>
         <source>PSK</source>
-        <translation type="unfinished"></translation>
+        <translation>PSK</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1001"/>
@@ -329,12 +329,12 @@
     <message>
         <location filename="../mainwindow.ui" line="1057"/>
         <source>Frequenz:</source>
-        <translation type="unfinished"></translation>
+        <translation>Frequency:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1070"/>
         <source>Phase:</source>
-        <translation type="unfinished"></translation>
+        <translation>Phase:</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1099"/>
@@ -354,7 +354,7 @@
     <message>
         <location filename="../mainwindow.ui" line="1131"/>
         <source>Intern</source>
-        <translation type="unfinished"></translation>
+        <translation>Internal</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1144"/>
@@ -364,12 +364,12 @@
     <message>
         <location filename="../mainwindow.ui" line="1147"/>
         <source>Extern</source>
-        <translation type="unfinished"></translation>
+        <translation>External</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1176"/>
         <source>Int. Frequenz:</source>
-        <translation type="unfinished"></translation>
+        <translation>Int.frequency:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1189"/>
@@ -379,27 +379,27 @@
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1219"/>
         <source>Geräte Informationen</source>
-        <translation type="unfinished"></translation>
+        <translation>Device information</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1231"/>
         <source>Hardware:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hardware:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1244"/>
         <source>Software:</source>
-        <translation type="unfinished"></translation>
+        <translation>Software:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1264"/>
         <source>Hardware Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Hardware version</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1287"/>
         <source>Software Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Software version</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1310"/>
@@ -444,7 +444,7 @@
     <message>
         <location filename="../mainwindow.ui" line="1410"/>
         <source>&amp;Einstellungen</source>
-        <translation>&amp;Preferences</translation>
+        <translation>&amp;Settings</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1413"/>
@@ -489,7 +489,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="265"/>
         <source>Fehler</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
 </context>
 <context>
@@ -497,42 +497,42 @@
     <message>
         <location filename="../setup_dialog.ui" line="14"/>
         <source>Einstellungen</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="29"/>
         <source>Serielle Schnittstelle</source>
-        <translation type="unfinished"></translation>
+        <translation>Serial interface</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="41"/>
         <source>Seriellport:</source>
-        <translation type="unfinished"></translation>
+        <translation>Serialports:</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="54"/>
         <source>Baudrate:</source>
-        <translation type="unfinished"></translation>
+        <translation>Baudrate:</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="67"/>
-        <source>Data Bits:</source>
-        <translation type="unfinished"></translation>
+        <source>Daten Bits:</source>
+        <translation>Data bits:</translation>
     </message>
     <message utf8="true">
         <location filename="../setup_dialog.ui" line="80"/>
         <source>Parität:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parity:</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="93"/>
         <source>Stop Bits:</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop bits:</translation>
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="106"/>
         <source>Fluss Kontr.:</source>
-        <translation type="unfinished"></translation>
+        <translation>Float contr.:</translation>
     </message>
 </context>
 </TS>

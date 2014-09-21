@@ -516,7 +516,7 @@
     </message>
     <message>
         <location filename="../setup_dialog.ui" line="67"/>
-        <source>Data Bits:</source>
+        <source>Daten Bits:</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">

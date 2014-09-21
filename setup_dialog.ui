@@ -64,7 +64,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Data Bits:</string>
+          <string>Daten Bits:</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_4">
