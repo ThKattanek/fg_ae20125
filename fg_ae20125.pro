@@ -55,7 +55,9 @@ OTHER_FILES += \
     translations/lang_de.png \
     translations/lang_en.png \
     docs/daten_protokoll_ascel.pdf \
-    license.txt
+    license.txt \
+    translations/lang_en.qm \
+    translations/lang_de.qm
 
 ## Translation Release ##
 
